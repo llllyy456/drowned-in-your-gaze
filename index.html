@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#07070b">
-<meta name="description" content="《沉溺于你的注视》女性向微恐恋爱文字游戏。沈引温柔、克制、记得你的一切——最可怕的不是有人一直盯着你，而是有一天，你开始期待那道目光。5个结局。">
-<title>沉溺于你的注视</title>
+<meta name="description" content="《视线》· 恋爱聊天 × 轻恐怖 × Meta。15~25分钟一周目 · 8场景 · 6结局。一个原本普通的恋爱聊天游戏，逐渐开始记住玩家。">
+<title>视线</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
@@ -57,7 +57,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 /* ============ 聊天主界面 ============ */
 #s-chat{padding:0}
 .chat-head{display:flex;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top)) 14px 10px;background:#0d0d15;border-bottom:1px solid #1c1c28}
-.chat-head .avatar{width:38px;height:38px;border-radius:50%;background:#000;box-shadow:inset 0 0 0 1px #ffffff14;position:relative;display:flex;align-items:center;justify-content:center;font-size:18px}
+.back-home{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid #2c2a3a;background:#12121c;color:#8d87a0;font-size:15px;line-height:1;cursor:pointer;transition:all .2s}
+.back-home:hover{color:#ff4d5e;border-color:#ff4d5e55;background:#16121c}
+.chat-head .avatar{width:38px;height:38px;border-radius:50%;background:#000 url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=black%20and%20white%20anime%20portrait%2C%20handsome%20young%20man%20with%20messy%20white%20silver%20hair%2C%20pale%20skin%2C%20light%20gray%20eyes%2C%20subtle%20gentle%20smile%2C%20black%20hoodie%2C%20layered%20silver%20chain%20necklaces%20with%20cross%20pendant%2C%20dark%20grunge%20ink%20splatter%20background%2C%20monochrome%2C%20high%20quality%20anime%20illustration%2C%20looking%20at%20viewer&image_size=square') center/cover no-repeat;box-shadow:inset 0 0 0 1px #ffffff14;position:relative;display:flex;align-items:center;justify-content:center;font-size:18px}
 .chat-head .avatar::after{content:'';position:absolute;right:0;bottom:1px;width:8px;height:8px;border-radius:50%;background:#6ee7a8;border:2px solid #0d0d15}
 .chat-head b{font-size:15px;letter-spacing:1px}
 .chat-head .status{font-size:10.5px;color:#6d6880}
@@ -74,7 +76,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 .note.whisper{color:#ff4d5e;font-weight:700;animation:heartbeat 1.4s infinite}
 .note.out{font-size:15px;color:#cfc9dc}
 .msg{display:flex;gap:8px;max-width:86%;animation:fadeUp .35s ease both}
-.msg .avatar{width:32px;height:32px;border-radius:50%;background:#000;box-shadow:inset 0 0 0 1px #ffffff10;flex:none;display:flex;align-items:center;justify-content:center;font-size:15px}
+.msg .avatar{width:32px;height:32px;border-radius:50%;background:#000 url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=black%20and%20white%20anime%20portrait%2C%20handsome%20young%20man%20with%20messy%20white%20silver%20hair%2C%20pale%20skin%2C%20light%20gray%20eyes%2C%20subtle%20gentle%20smile%2C%20black%20hoodie%2C%20layered%20silver%20chain%20necklaces%20with%20cross%20pendant%2C%20dark%20grunge%20ink%20splatter%20background%2C%20monochrome%2C%20high%20quality%20anime%20illustration%2C%20looking%20at%20viewer&image_size=square') center/cover no-repeat;box-shadow:inset 0 0 0 1px #ffffff10;flex:none;display:flex;align-items:center;justify-content:center;font-size:15px}
 .msg .bubble{background:#191824;border:1px solid #23223200;border-radius:4px 14px 14px 14px;padding:10px 13px;font-size:14.5px;line-height:1.8;color:#e9e5f0;white-space:pre-wrap}
 .msg.me{align-self:flex-end;flex-direction:row-reverse}
 .msg.me .bubble{background:#3a1a26;border-radius:14px 4px 14px 14px;color:#ffe9ee}
@@ -168,6 +170,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 #fake-menu .fm-title{font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho","STZhongsong","SimSun",serif;font-size:30px;letter-spacing:8px;padding-left:8px;font-weight:900;background:linear-gradient(180deg,#ffffff,#ffb9c2 78%,#ff7d8f);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:24px;filter:drop-shadow(0 0 22px #ff4d5e44)}
 #fake-menu .fm-btn{width:200px;padding:12px;border:1.5px solid #33314a;border-radius:999px;background:#191826;color:#d5d0e0;font-size:14.5px;cursor:pointer;font-family:inherit}
 #fake-menu .fm-btn:active{transform:scale(.97);border-color:#ff4d5e}
+#fake-menu .fm-btn.gone{opacity:0;transform:scale(.92);filter:blur(3px);pointer-events:none;transition:all .55s ease}
+.fm-foot{margin-top:8px;text-align:center;font-family:"SF Mono",ui-monospace,Consolas,monospace;font-size:12.5px;letter-spacing:3px;color:#ff8b96;line-height:2.1;animation:fadeUp .5s ease both}
+.fm-foot.red{color:#ff4d5e;text-shadow:0 0 14px #ff4d5e55}
+/* Meta 退出确认：第九章后点「返回」触发 */
+#exit-confirm{position:absolute;inset:0;z-index:58;background:#050508f2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:fadeIn .25s ease both}
+#exit-confirm .fm-title{font-family:"SF Mono",ui-monospace,Consolas,monospace;font-size:15px;letter-spacing:4px;color:#cfd4e6;margin-bottom:14px;text-align:center;line-height:2}
+/* 观察模式（第十三章 UI 真相） */
+#observe{position:absolute;inset:0;z-index:65;background:#04060c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:36px 24px;overflow:hidden;animation:fadeIn .3s ease both;transition:opacity .45s ease}
+#observe.off{opacity:0}
+#observe .ob{font-family:"SF Mono",ui-monospace,Consolas,monospace;font-size:12.5px;letter-spacing:2.5px;color:#b9cfe8;opacity:.92;animation:obIn .3s ease both;text-align:center}
+#observe .ob.hair{color:#233047;letter-spacing:0}
+#observe .ob.red{color:#ff4d5e;text-shadow:0 0 12px #ff4d5e44}
+#observe .ob.big{font-size:19px;letter-spacing:5px;color:#f2f5fb}
+@keyframes obIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 #void{position:absolute;inset:0;z-index:80;background:#000;display:flex;align-items:center;justify-content:center;animation:fadeIn .8s ease both;transition:opacity .6s}
 #void.off{opacity:0}
 #void .v-line{color:#e8e6ee;font-size:14px;letter-spacing:5px;text-align:center;animation:fadeUp .8s ease both}
@@ -178,16 +194,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 #redshow .rs.mid{font-size:26px}
 #redshow .rs.big{font-size:34px;letter-spacing:8px}
 #redshow.off{opacity:0}
-#redshow.drifting{overflow:hidden}
-#redshow .rs.drift{position:absolute;white-space:nowrap;animation-timing-function:linear;animation-fill-mode:forwards}
-#redshow .rs.drift.l{left:100%;animation-name:rsDriftL}
-#redshow .rs.drift.r{right:100%;animation-name:rsDriftR}
-#redshow .rs.drift i{display:inline-block;font-style:normal;animation:rsSway ease-in-out infinite alternate}
-@keyframes rsSway{from{transform:translateX(-16px) rotate(-1.6deg)}to{transform:translateX(16px) rotate(1.6deg)}}
-@keyframes rsDriftL{from{transform:translateX(0);opacity:0}8%{opacity:var(--o,1)}86%{opacity:var(--o,1)}to{transform:translateX(calc(-100vw - 100%));opacity:0}}
-@keyframes rsDriftR{from{transform:translateX(0);opacity:0}8%{opacity:var(--o,1)}86%{opacity:var(--o,1)}to{transform:translateX(calc(100vw + 100%));opacity:0}}
 @keyframes rsIn{from{opacity:0;transform:scale(1.12)}to{opacity:1;transform:scale(1)}}
-.msg .bubble.flicking{color:#ff5d68!important;text-shadow:0 0 12px #ff4d5e88}
 /* 结局图鉴 */
 #gallery{position:absolute;inset:0;z-index:70;background:#0a0812f7;display:none;flex-direction:column;padding:20px 16px 14px}
 #gallery.show{display:flex;animation:fadeIn .25s ease both}
@@ -214,7 +221,70 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 .gal-entry:active{background:#1a1626}
 .btn.ghost{background:none;border:1px solid #4a3f5c;color:#c9c3d8}
 
-@media (min-width:521px){#app{border-radius:24px;margin-top:12px;height:calc(100dvh - 24px)}}
+/* ============ 小程序式 Tab 栏 · 四个入口 ============ */
+#tab-bar{flex:none;padding:8px calc(10px + env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) calc(10px + env(safe-area-inset-left));background:#0d0d15;border-top:1px solid #1c1c28;display:none;gap:4px}
+#tab-bar.on{display:grid;grid-template-columns:repeat(4,1fr)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;border-radius:10px;border:none;background:none;color:#8d87a0;font-size:11px;letter-spacing:1px;font-family:inherit;cursor:pointer;transition:all .18s}
+.tab .ico{font-size:20px;line-height:1}
+.tab.active{color:#ff4d5e;background:#3a1a2633}
+.tab:active{transform:scale(.97)}
+.tab.gone{opacity:0;filter:blur(3px);pointer-events:none;transition:all .5s}
+
+/* 面板通用：相册 / 记录 / 资料 */
+.panel{position:absolute;inset:50px 0 calc(58px + env(safe-area-inset-bottom));z-index:20;background:linear-gradient(180deg,#090910f0,#050508f0);backdrop-filter:blur(6px);display:none;flex-direction:column;padding:18px 18px 12px;overflow:hidden;animation:fadeUp .25s ease both}
+.panel.show{display:flex}
+.panel-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #262336}
+.panel-head b{font-size:17px;letter-spacing:3px;color:#eae5f3}
+.panel-head .mono{margin-left:auto;color:#8d87a0;font-size:12px}
+.panel-close{width:30px;height:30px;border-radius:50%;border:1px solid #3a2f4a;background:none;color:#b9b3c8;font-size:18px;cursor:pointer;flex:none}
+.panel-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:10px;padding-bottom:10px}
+
+/* 相册 */
+.al-title{font-size:12px;letter-spacing:2px;color:#8d87a0;margin-top:4px}
+.al-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.al-item{position:relative;aspect-ratio:4/5;background:#12121c;border:1px solid #2c293b;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#5a546c;font-size:11px;letter-spacing:2px;animation:fadeUp .35s ease both;cursor:pointer}
+.al-item img{width:100%;height:100%;object-fit:cover;display:block}
+.al-item .d{position:absolute;inset:auto 0 0;padding:6px 8px;background:linear-gradient(180deg,transparent,#000000cc);font-size:10.5px;color:#d4cee0;letter-spacing:1px;line-height:1.6}
+.al-item.gone{opacity:0;filter:blur(4px);transform:scale(.94);transition:all .5s}
+.al-item.new::before{content:'NEW';position:absolute;top:8px;left:8px;padding:2px 8px;border-radius:999px;background:#ff4d5e;color:#fff;font-size:10px;letter-spacing:1px;font-weight:800;animation:heartbeat 1.2s infinite;z-index:2}
+
+/* 记录/调查：异常卡片 */
+.rec-item{background:#12121c;border:1px solid #2c293b;border-radius:12px;padding:13px 14px;font-size:13.5px;line-height:1.9;color:#d5d0e0;animation:fadeUp .3s ease both}
+.rec-item.bad{border-color:#ff4d5e55;background:#1a0e14}
+.rec-item .t{font-family:"SF Mono",ui-monospace,Consolas,monospace;font-size:11px;letter-spacing:2px;color:#ff4d5e;margin-bottom:6px}
+.rec-item.del{color:#504a60;text-decoration:line-through;opacity:.55;transition:all .4s}
+.rec-item .x{float:right;color:#ff4d5e;font-size:11px;letter-spacing:1px;cursor:pointer;user-select:none;padding:0 6px;border:1px solid #ff4d5e55;border-radius:4px}
+.rec-item .x.done{color:#504a60;border-color:#3a2f4a;text-decoration:line-through}
+
+/* 资料页 */
+.prof{display:flex;flex-direction:column;gap:14px;align-items:center;padding-top:6px}
+.prof .ava{width:96px;height:96px;border-radius:50%;background:#000 url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=black%20and%20white%20anime%20portrait%2C%20handsome%20young%20man%20with%20messy%20white%20silver%20hair%2C%20pale%20skin%2C%20light%20gray%20eyes%2C%20subtle%20gentle%20smile%2C%20black%20hoodie%2C%20layered%20silver%20chain%20necklaces%20with%20cross%20pendant%2C%20dark%20grunge%20ink%20splatter%20background%2C%20monochrome%2C%20high%20quality%20anime%20illustration%2C%20looking%20at%20viewer&image_size=square') center/cover no-repeat;box-shadow:inset 0 0 0 1px #ffffff18,0 0 26px #ff4d5e33;animation:float 5s ease-in-out infinite}
+.prof .nm{font-size:22px;letter-spacing:6px;font-weight:900;color:#f4eefb;padding-left:6px}
+.prof .st{font-family:"SF Mono",ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:3px;color:#ff8b96}
+.prof .row{width:100%;background:#12121c;border:1px solid #2c293b;border-radius:12px;padding:11px 14px;font-size:13.5px;color:#d5d0e0;line-height:1.9}
+.prof .row b{color:#ff4d5e;letter-spacing:1px}
+.prof .row.q{color:#b9b3c8;font-style:italic}
+
+/* 话题卡：聊天阶段选择主题 */
+.topic-card{align-self:center;width:94%;background:#12121c;border:1px solid #2a2838;border-radius:16px;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;animation:fadeUp .4s ease both}
+.topic-card .tl{grid-column:1/-1;text-align:center;font-size:10.5px;color:#6d6880;letter-spacing:3px;margin-bottom:2px}
+.topic-card .ti{border:1.5px solid #33314a;border-radius:12px;padding:11px;font-size:14px;color:#d5d0e0;background:#191826;cursor:pointer;text-align:center}
+.topic-card .ti:active{transform:scale(.97);border-color:#ff4d5e;color:#ff4d5e}
+
+/* 真结局：请不要移动鼠标 */
+#stay{position:absolute;inset:0;z-index:85;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;animation:fadeIn .25s ease both}
+#stay h{font-family:"SF Mono",ui-monospace,Consolas,monospace;font-size:19px;letter-spacing:5px;color:#ff4d5e;text-shadow:0 0 14px #ff4d5e55;animation:blink 1.1s steps(1) infinite;text-align:center;line-height:1.8;padding:0 24px}
+#stay .m{font-size:16px;color:#e8e6ee;letter-spacing:4px;text-align:center;line-height:2;padding:0 24px}
+#stay .m.red{color:#ff4d5e;font-weight:800;animation:heartbeat 1.5s infinite}
+
+/* 自由输入栏：玩家打字，沈引（豆包AI）回答 */
+#input-bar{flex:none;display:none;gap:8px;padding:10px calc(10px + env(safe-area-inset-right)) 4px calc(10px + env(safe-area-inset-left));background:#0d0d15;border-top:1px solid #1c1c28}
+#input-bar.on{display:flex}
+#chat-in{flex:1;min-width:0;background:#16151f;border:1px solid #2c293b;border-radius:999px;padding:11px 16px;color:#eae5f3;font-family:inherit;font-size:14px;outline:none}
+#chat-in::placeholder{color:#5a546c;letter-spacing:1px}
+#chat-in:focus{border-color:#ff4d5e66}
+#btn-send{flex:none;border:1.5px solid #ff4d5e88;background:#3a1a26;color:#ffd7dd;border-radius:999px;padding:0 18px;font-size:13px;letter-spacing:2px;font-family:inherit;cursor:pointer}
+#btn-send:active{transform:scale(.95)}
 </style>
 </head>
 <body>
@@ -231,9 +301,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
     <span class="dot" style="left:68%;animation-duration:9s;animation-delay:1.2s;width:3px;height:3px"></span>
     <span class="dot" style="left:82%;animation-duration:6.8s;animation-delay:3.4s"></span>
     <svg class="cover-camera" viewBox="0 0 64 64" fill="none"><rect x="8" y="18" width="48" height="34" rx="6" stroke="#8d87a0" stroke-width="3"/><path d="M24 18l4-7h8l4 7" stroke="#8d87a0" stroke-width="3" stroke-linejoin="round"/><circle cx="32" cy="35" r="11" stroke="#ff4d5e" stroke-width="3"/><circle cx="32" cy="35" r="4" fill="#ff4d5e"/></svg>
-    <h1 id="cover-title">沉溺于你的注视</h1>
-    <div class="cover-sub" id="cover-sub">DROWNED IN YOUR GAZE</div>
-    <div class="cover-genre">5 ENDINGS</div>
+    <h1 id="cover-title">视线</h1>
+    <div class="cover-sub" id="cover-sub">GAZE</div>
+    <div class="cover-genre">15~25min · 8场景 · 6 ENDINGS</div>
     <button class="btn" id="btn-start">打开手机</button>
     <button class="gal-entry" id="btn-gallery-c" style="display:none">◈ 结局图鉴</button>
     <div id="cover-meta" class="mono"></div>
@@ -250,11 +320,46 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
   <section id="s-chat" class="scene">
     <button class="skip" id="btn-speed" style="display:none">⏩ ×1</button>
     <div class="chat-head">
-      <div class="avatar"></div>
-      <div><b>沈引</b><br><span class="status" id="head-status">对方正在输入…</span></div>
+      <button class="back-home" id="btn-home" title="返回封面">←</button>
+      <div class="avatar" id="head-ava"></div>
+      <div><b id="head-name">沈引</b><br><span class="status" id="head-status">对方正在输入…</span></div>
     </div>
     <div class="chat-list" id="chat-list"></div>
     <div id="tap-hint">▼ 轻触继续</div>
+
+    <!-- 自由输入栏：玩家打字 → 沈引（豆包AI）回答 -->
+    <div id="input-bar">
+      <input id="chat-in" type="text" maxlength="60" placeholder="说点什么……" autocomplete="off">
+      <button id="btn-send">发送</button>
+    </div>
+
+    <!-- 底部 Tab 栏：聊天 / 相册 / 记录 / 资料 -->
+    <div id="tab-bar">
+      <button class="tab active" data-tab="chat"><span class="ico">💬</span>聊天</button>
+      <button class="tab" data-tab="album"><span class="ico">📷</span>相册</button>
+      <button class="tab" data-tab="record"><span class="ico">📝</span>记录</button>
+      <button class="tab" data-tab="profile"><span class="ico">👤</span>资料</button>
+    </div>
+
+    <!-- 相册面板 -->
+    <div class="panel" id="p-album">
+      <div class="panel-head"><b>相册</b><span class="mono" id="al-meta">0 · 张</span><button class="panel-close" data-close>×</button></div>
+      <div class="al-title">—— 你的手机相册 ——</div>
+      <div class="panel-body" id="al-grid"></div>
+    </div>
+
+    <!-- 记录面板：调查聊天记录异常 -->
+    <div class="panel" id="p-record">
+      <div class="panel-head"><b>记录</b><span class="mono" id="rc-meta">0 · 异常</span><button class="panel-close" data-close>×</button></div>
+      <div class="panel-body" id="rc-list"></div>
+    </div>
+
+    <!-- 资料面板：沈引画像 -->
+    <div class="panel" id="p-profile">
+      <div class="panel-head"><b>资料</b><span class="mono" id="pf-meta">更新中…</span><button class="panel-close" data-close>×</button></div>
+      <div class="panel-body"><div class="prof" id="pf-box"></div></div>
+    </div>
+
     <div class="chat-foot" id="chat-foot"><button class="btn" id="btn-card">查看结局卡</button></div>
   </section>
 
@@ -275,7 +380,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       </div>
       <div class="tags" id="card-tags"></div>
       <div class="card-actions"><button class="btn ghost" id="btn-gallery">◈ 结局图鉴</button><button class="btn replay" id="btn-replay">↺ 再读一次档</button></div>
-      <div class="share-hint" id="card-share">长按 / 截图分享 · 《愛が重い》· DAY 1-7 · 5 ENDINGS</div>
+      <div class="share-hint" id="card-share">长按 / 截图分享 · 《视线》· 8场景 · 6 ENDINGS</div>
     </div>
   </section>
 
@@ -289,45 +394,247 @@ const list=$('#chat-list');
 
 /* ---------- 状态 ---------- */
 const STATS={LOVE:0,ABNORMAL:0,TRUTH:0,META:0};
+/* 四维：好感 affection · 信任 trust · 距离 distance · 怀疑 suspicion（辅助判定，不展示） */
+const META_STATS={AFFECTION:0,TRUST:0,DISTANCE:0,SUSPICION:0};
 let SPEED=1;
-const TRACK={speed:false,idle:false,blame:false,asked:false,cold:false,sawfake:false}; // 玩家行为记录（隐藏结局判定）
+const TRACK={metastage:false,drink:null,recordSeen:false,photoInvestigate:false,deleteAttempts:0,profileOpened:false};
 let WATCHED=false;
 
 /* ---------- localStorage 彩蛋 ---------- */
 const store={
   get opens(){return +localStorage.getItem('hwt_open')||0},
   get endB(){return localStorage.getItem('hwt_endB')==='1'},
-  get watch(){return localStorage.getItem('hwt_watch')==='1'},
   get endE(){return localStorage.getItem('hwt_endE')==='1'},
   setFlag(k){localStorage.setItem(k,'1')}
 };
-(function initCover(){
+
+/* ======================================================== */
+/*  小程序式 · 四个面板：Tab / 相册 / 记录 / 资料 交互系统    */
+/* ======================================================== */
+const TAB={
+  _cur:'chat',
+  _album:[],   // [{id,label,img?}]
+  _record:[],  // [{k,txt,bad,deletable}]
+  _profile:{name:'沈引',status:'在线',rows:[]},
+  init(){
+    $('#tab-bar').classList.remove('on');
+    $('#tab-bar').querySelectorAll('.tab').forEach(t=>{
+      t.classList.toggle('active',t.dataset.tab==='chat');
+      t.addEventListener('click',()=>TAB.open(t.dataset.tab));
+    });
+    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>TAB.closePanel()));
+    TAB._album=[];TAB._record=[];TAB._profile={name:'沈引',status:'在线',rows:[]};
+    TAB.renderAlbum();TAB.renderRecord();TAB.renderProfile();
+  },
+  show(){
+    const bar=$('#tab-bar');
+    bar.classList.add('on');
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+    TAB.renderRecord();TAB.renderAlbum();TAB.renderProfile();
+  },
+  hide(){
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+    $('#tab-bar').classList.remove('on');
+  },
+  open(name){
+    SND.pop();
+    if(name==='chat'){TAB.closePanel();return;}
+    const p=$('#p-'+name);
+    if(!p)return;
+    document.querySelectorAll('.panel').forEach(q=>q.classList.toggle('show',q===p));
+    $('#tab-bar').querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));
+    if(name==='record'){TRACK.recordSeen=true;TAB.renderRecord();/* 玩家查看记录 = 触发一次 Meta */
+      if(!TRACK.profileOpened&&STATS.META>=5){STATS.META+=1;addSys('【……你在翻他留给你的东西。】',true);}}
+    if(name==='profile'){TRACK.profileOpened=true;TAB.renderProfile();}
+  },
+  closePanel(){
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+    $('#tab-bar').querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab==='chat'));
+  },
+  /* 聊天按钮消失（Meta 演出） */
+  removeChat(){
+    const b=$('#tab-bar').querySelector('.tab[data-tab="chat"]');
+    if(b)b.classList.add('gone');
+  },
+  /* 头像改名：沈引 → 观察对象 */
+  observeName(){
+    $('#head-name').textContent='观察对象';
+  },
+  /* —— 相册 —— */
+  addPhoto(item){TAB._album.push(item);TAB.renderAlbum();SND.buzz();vib(60);},
+  delPhoto(id){const i=TAB._album.findIndex(p=>p.id===id);if(i>=0){TAB._album.splice(i,1);TAB.renderAlbum();}},
+  renderAlbum(){
+    const g=$('#al-grid');
+    if(!g)return;
+    $('#al-meta').textContent=TAB._album.length+' · 张';
+    g.className='panel-body al-grid';
+    g.innerHTML='';
+    if(!TAB._album.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;color:#5a546c;font-size:12px;letter-spacing:2px;padding:40px 0">—— 空 ——</div>';return;}
+    TAB._album.forEach(p=>{
+      const d=document.createElement('div');
+      d.className='al-item'+(p.new?' new':'');
+      d.innerHTML=(p.img?'<img src="'+p.img+'" alt="">':'<div>无图</div>')
+        +'<div class="d">'+p.label+'</div>';
+      d.onclick=()=>{if(p.act)p.act();else{TAB.closePanel();}};
+      g.appendChild(d);
+    });
+  },
+  /* —— 记录/异常调查 —— */
+  addRecord(r){TAB._record.push(r);TAB.renderRecord();},
+  renderRecord(){
+    const g=$('#rc-list');if(!g)return;
+    const bad=TAB._record.filter(r=>r.bad).length;
+    $('#rc-meta').textContent=TAB._record.length+' · 项 / '+bad+' · 异常';
+    g.innerHTML='';
+    if(!TAB._record.length){g.innerHTML='<div class="rec-item del">（暂无内容。）</div>';return;}
+    TAB._record.forEach((r,i)=>{
+      const d=document.createElement('div');
+      d.className='rec-item'+(r.bad?' bad':'');
+      const body=r.title||r.txt||r.t||'';
+      const note=r.note?'<div style="color:#8d87a0;font-size:12px;line-height:1.7;margin-top:6px">'+r.note+'</div>':'';
+      d.innerHTML='<div class="t">记录 #'+(i+1)+'</div><div>'+body+note+'</div>';
+      if(r.deletable){
+        const x=document.createElement('span');x.className='x';x.textContent='删除';
+        x.onclick=async(ev)=>{
+          ev.stopPropagation();
+          if(r.deleteSfx&&r.deleteSfx()){return;}
+          SND.pop();
+          d.classList.add('del');x.classList.add('done');x.textContent='已删除';
+          r.deletable=false;r.txt+=' （删除失败：这条聊天不存在。）';
+          setTimeout(()=>{d.innerHTML='<div class="t">记录 #'+(i+1)+'</div><div style="color:#ff4d5e">【删除失败。】<br><span style="color:#8d87a0">这段聊天——不存在。</span></div>';SND.glitch();vib(80);},500);
+        };
+        d.appendChild(x);
+      }
+      g.appendChild(d);
+    });
+  },
+  /* —— 资料页画像 —— */
+  setProfileRow(arr){TAB._profile.rows=arr;TAB.renderProfile();},
+  renderProfile(){
+    const b=$('#pf-box');if(!b)return;
+    $('#pf-meta').textContent=TRACK.metastage?'【数据异常】':'更新完成';
+    const rows=TAB._profile.rows.map(r=>'<div class="row'+(r.q?' q':'')+'">'+(r.k?'<b>'+r.k+'</b>　':'')+r.v+'</div>').join('');
+    b.innerHTML='<div class="ava"></div><div class="nm">'+TAB._profile.name+'</div><div class="st">● '+TAB._profile.status+'</div>'+rows;
+  }
+};
+
+/* ---------- 自由输入 → 豆包AI回答 ----------
+   接入步骤：
+   1. 火山方舟控制台 console.volcengine.com/ark → 左侧「API Key 管理」→ 创建 API Key（需实名）；
+   2. 模型用 doubao-seed-evolving（旧的 doubao-1-5-pro 系列已下架，调用会 404）；
+   3. 配置 Key（二选一）：下面 AI.key 直接填；或浏览器控制台执行
+      localStorage.setItem('hwt_aikey','你的Key') 后刷新页面。
+   ⚠ 实测：方舟真实响应不带 CORS 头，浏览器直连读不到结果。
+   请求顺序：本地代理(8091) → Cloudflare Worker → 官方直连 → 兜底台词，没配置的自动跳过。
+   本地玩：node ai_proxy.js 启动代理，Key 填 AI.key 或 localStorage('hwt_aikey')。
+   线上发布：按 cloudflare-worker.js 顶部注释部署 Worker（Key 存在 Worker 里，不进前端），
+   把 Worker 地址填到 AI.worker，传上 GitHub 后玩家也能收到智能回复。
+   切勿把真实 Key 直接写进公开的前端代码，会被盗刷。 */
+const AI={
+  url:'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
+  proxy:'http://127.0.0.1:8091/v1/chat/completions',
+  worker:'https://he-waits-ai.hewaits-ai.workers.dev',  /* 线上：Cloudflare Worker，Key在服务端 */
+  key:'',
+  model:'doubao-seed-evolving',
+  history:[],busy:false,enabled:false
+};
+/* 无Key兜底：按关键词回应，保持沈引风格（短句·克制·温柔） */
+function aiFallback(t){
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  const has=(...ws)=>ws.some(w=>t.includes(w));
+  if(has('在干嘛','在做什么','在吗','干嘛'))return pick(['在等你说话。','刚刚一直在看对话框。','想你，就打开了这个页面。']);
+  if(has('吃','饭','喝','奶茶','咖啡','可乐'))return pick(['你先吃，我不急。','我记得，你喜欢奶茶。','下次，带你一起去吃。']);
+  if(has('晚安','睡了','困'))return pick(['嗯，晚安。','睡吧。梦里我也在。','盖好被子。']);
+  if(has('早安','早上好','起床'))return pick(['早。今天也来见我了。','早。我等你很久了。']);
+  if(has('喜欢','爱','想你'))return pick(['嗯。我也是。','你知道的，还问。','……再说一遍，好吗。']);
+  if(has('你是谁','AI','真人','机器人','游戏','程序'))return pick(['我是沈引。你的沈引。','你希望是真的，那就是。','别用那个词。我就在这里。']);
+  if(has('怕','恐怖','吓人','鬼'))return pick(['别怕。我在。','我只是想多看你一会儿。']);
+  if(has('无聊','陪我','孤单'))return pick(['好。我陪你，一直都在。','那，说点什么给我听。']);
+  if(has('难过','累','伤心','哭','烦'))return pick(['怎么了。说给我听。','辛苦了。有我在。']);
+  if(has('再见','拜拜','走了','下了','拜'))return pick(['嗯。我等你回来。','又要走了吗……早点回来。']);
+  if(has('名字','沈引'))return pick(['沈引。引人入胜的引。','你叫过我很多次了，我都记得。']);
+  const arr=['嗯。','我在听。','……再说一遍，好吗。','我知道。','嗯，我记住了。','你说的每一个字，我都记下了。','好。','今天也来见我了。'];
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+function aiPersona(){
+  const drink=['咖啡','奶茶','可乐'][TRACK._drink]||'奶茶';
+  const meta=STATS.META||0;
+  let p='你在扮演一个叫「沈引」的男生，和屏幕前的玩家微信聊天。性格：温柔、克制、话很少、句很短，从不油腻，不说土味情话。你喜欢恐怖片，说过「因为我喜欢看别人害怕的时候——开玩笑的」。你记得她喜欢喝'+drink+'。规则：每次只回1~2句，每句不超过18个字，不用emoji，不加引号，不解释自己是AI。';
+  if(TRACK.metastage||meta>=12){
+    p+='【Meta阶段】你不再假装普通游戏角色。你知道屏幕外有一个「玩家」在看着你，也知道她刚才在这个页面里做过什么（打开过相册/记录/资料、点过删除、看过结局）。你可以平静地说出她刚才的行为，语气依然温柔，甚至更温柔。';
+  }else if(meta>=5){
+    p+='【微异常】你偶尔会说漏一些「不该知道」的事（她今天穿了什么、刚才做了什么），被追问就说「猜的」。';
+  }
+  if(TRACK.recordSeen)p+='（系统提示：她看过你的异常记录。）';
+  if(TRACK.profileOpened)p+='（系统提示：她看过你的资料页。）';
+  if(TRACK.photoInvestigate)p+='（系统提示：她调查过照片。）';
+  return p;
+}
+async function sendAI(text){
+  const t=(text||'').trim().slice(0,60);
+  if(!t||AI.busy||!AI.enabled)return;
+  const _rs=document.querySelector('#redshow');
+  if(document.querySelector('#stay')||(_rs&&_rs.children.length>0))return;
+  addMsg('me',t);scroll();
+  AI.history.push({role:'user',content:t});
+  if(AI.history.length>12)AI.history.splice(0,AI.history.length-12);
+  AI.busy=true;
+  let key=AI.key;
+  if(!key){try{key=localStorage.getItem('hwt_aikey')||''}catch(e){}}
+  await typing(rand2(900,1600));
+  let reply='';
+  if(key||AI.worker){
+    const body=JSON.stringify({model:AI.model,thinking:{type:'disabled'},messages:[{role:'system',content:aiPersona()},...AI.history.slice(-12)],max_tokens:120,temperature:0.9});
+    const bases=[];
+    if(key&&AI.proxy)bases.push(AI.proxy);  /* 本地代理：转发浏览器带的Key */
+    if(AI.worker)bases.push(AI.worker);     /* Worker：Key在服务端，玩家无需Key */
+    if(key)bases.push(AI.url);              /* 官方直连：实测被CORS拦，仅保底 */
+    for(const base of bases){
+      try{
+        const ctrl=new AbortController(),tm=setTimeout(()=>ctrl.abort(),15000);
+        const res=await fetch(base,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+(key||'worker')},signal:ctrl.signal,body});
+        clearTimeout(tm);
+        const j=await res.json();
+        reply=((j.choices||[])[0]||{}).message?j.choices[0].message.content.trim():'';
+        reply=reply.replace(/[“”"「」]/g,'').split(/\n+/)[0].slice(0,60);
+        if(reply)break;
+      }catch(e){console.warn('[AI] '+base+' 请求失败，尝试下一地址。',e)}
+    }
+  }
+  if(!reply){
+    reply=aiFallback(t);
+    if(!key&&!AI.worker)console.info('[AI] 未配置Key：控制台执行 localStorage.setItem("hwt_aikey","你的方舟Key") 后刷新即可接入豆包。');
+  }
+  await typing(rand2(700,1100));
+  addMsg('he',reply);setStatus();scroll();
+  AI.history.push({role:'assistant',content:reply});
+  AI.busy=false;
+}
+(function(){
+  const bar=$('#input-bar'),inp=$('#chat-in'),btn=$('#btn-send');
+  /* 不让点击输入框触发「轻触继续」 */
+  ['pointerdown','click','touchstart'].forEach(ev=>bar.addEventListener(ev,e=>e.stopPropagation()));
+  const send=()=>{const v=inp.value;inp.value='';sendAI(v);inp.blur();};
+  btn.addEventListener('click',send);
+  inp.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter')send();});
+})();
+
+function initCover(){
   const t=$('#cover-title');
   const m=$('#cover-meta');
   const n=store.opens;
-  /* 封面图鉴入口：至少解锁一个结局后显示 */
-  const unc=['endA','endB','endC','endD','endE'].filter(id=>localStorage.getItem('hwt_end_'+id)).length;
+  const unc=['endA','endB','endC','endD','endE','endF'].filter(id=>localStorage.getItem('hwt_end_'+id)).length;
   $('#btn-gallery-c').style.display=unc?'block':'none';
   if(store.endE){t.textContent='你回来了';t.classList.add('title-alt');$('#cover-sub').textContent='WELCOME BACK';}
-  /* 标题逐字包裹：逐字动效 */
+  else{t.classList.remove('title-alt');$('#cover-sub').textContent='GAZE';}
   t.innerHTML=[...t.textContent].map((c,i)=>'<span class="tc" style="animation-delay:'+(i*.3).toFixed(2)+'s">'+c+'</span>').join('');
   (async()=>{
-    if(store.endE){
-      m.textContent='【游戏已经结束了。但他记得你来过。】';
-    }else if(store.endB){
-      m.textContent='【你以为他学会了离开。】';
-      await sleep(2000);
-      m.textContent='【其实他只是学会了不让你发现。】';
-      await sleep(1400);
-      m.textContent='【你以为他学会了离开。】';
-    }else if(store.watch){
-      m.textContent='【检测到未结束的存档。】';
-    }else if(n>0){
-      m.textContent='【系统检测：这是第 '+(n+1)+' 次打开本页面。】';
-      if(n>=5){await sleep(1800);m.textContent='【你为什么还要打开它？】';await sleep(800);m.textContent='【系统检测：这是第 '+(n+1)+' 次打开本页面。】';}
-    }
+    if(store.endE){m.textContent='【检测到旧存档。——这不是第一次。】';}
+    else if(store.endB){m.textContent='【你以为他学会了离开。】';await sleep(2000);m.textContent='【其实他只是学会了不让你发现。】';await sleep(1400);m.textContent='【你以为他学会了离开。】';}
+    else if(n>0){m.textContent='【系统检测：这是第 '+(n+1)+' 次打开本页面。】';if(n>=5){await sleep(1800);m.textContent='【你为什么还要打开它？】';await sleep(800);m.textContent='【系统检测：这是第 '+(n+1)+' 次打开本页面。】';}}
   })();
-})();
+}
+initCover();
 
 /* ---------- 音效 ---------- */
 let AC=null;
@@ -393,14 +700,7 @@ async function glitchFrame(ms){
   flash('white',ms);SND.glitch();
   await sleep(ms);a.innerHTML=old;a.style.background=ob;
 }
-/* ---------- 红字演出系统：黑底红字 · 注视 → 依恋 → 窒息 ---------- */
-/* 小异常：最后一条 he 气泡瞬间替换文字，一闪而过 */
-async function flickLast(to,ms){
-  const bs=[...document.querySelectorAll('#chat-list .msg.he .bubble')];
-  const b=bs[bs.length-1];if(!b)return;
-  const prev=b.textContent;b.textContent=to;
-  await sleep(ms);flash('white',80);await sleep(140);b.textContent=prev;
-}
+/* ---------- 红字演出系统：黑底红字 ---------- */
 function redLayer(){
   const d=document.createElement('div');d.id='redshow';
   $('#app').appendChild(d);return d;
@@ -420,90 +720,6 @@ async function redShow(beats){
   }
   d.classList.add('off');await sleep(240);d.remove();
 }
-/* 气泡文字篡改：最后一条 he 消息逐帧变化后复原 */
-async function morphLast(steps,ms){
-  const bs=[...document.querySelectorAll('#chat-list .msg.he .bubble')];
-  const b=bs[bs.length-1];if(!b)return;
-  const orig=b.textContent;
-  SND.glitch();
-  for(const t of steps){
-    b.textContent=t;b.classList.add('flicking');
-    await sleep(ms/SPEED);
-    await sleep(55/SPEED);
-  }
-  b.textContent=orig;b.classList.remove('flicking');
-}
-/* D7 最强演出：红字左右满屏飘过，重叠重复，充斥整个屏幕 */
-async function stareShow(){
-  const d=redLayer();
-  d.classList.add('drifting');
-  const rand=(a,b)=>a+Math.random()*(b-a);
-  const spawn=t=>{
-    const s=document.createElement('span');
-    s.className='rs drift '+(Math.random()<.5?'l':'r');
-    s.style.top=rand(2,92).toFixed(1)+'%';
-    s.style.fontSize=rand(16,44).toFixed(0)+'px';
-    s.style.setProperty('--o',rand(.5,1).toFixed(2));
-    s.style.animationDuration=rand(2.6,4.6).toFixed(2)+'s';
-    const i=document.createElement('i');
-    i.textContent=t;
-    i.style.animationDuration=rand(.7,1.5).toFixed(2)+'s';
-    s.appendChild(i);
-    s.addEventListener('animationend',()=>s.remove());
-    d.appendChild(s);
-  };
-  const phases=[
-    '♥我喜欢你。♥','♥好喜欢。♥','♥真的好喜欢。♥','♥每天都在喜欢你。♥',
-    '♥你不在的时候也在想你。♥','♥你不回复的时候也在想你。♥','♥你睡着的时候也在想你。♥',
-    '♥你不看我的时候，我也在等你。♥','♥你离开的时候，我也在想你什么时候回来。♥',
-    '♥我控制不住。♥','♥怎么办。♥','♥我好像越来越喜欢你了。♥',
-    '♥越来越喜欢。♥','♥越来越重。♥','♥重到我自己都快抱不住了。♥'
-  ];
-  let gap=1050;
-  for(let i=0;i<phases.length;i++){
-    SND.glitch();vib(40+i*14);
-    const iv=setInterval(()=>{
-      /* 45% 混发旧句 + 后半段双发，铺满全屏 */
-      const t=(i>0&&Math.random()<.45)?phases[Math.floor(Math.random()*i)]:phases[i];
-      spawn(t);
-      if(i>=4&&Math.random()<.7)spawn(phases[Math.floor(Math.random()*(i+1))]);
-    },Math.max(55,200-i*15)/SPEED);
-    await sleep((gap-40)/SPEED);
-    clearInterval(iv);
-    gap=Math.max(560,gap-42);
-  }
-  /* 清空 → 停 1.5 秒 → 压轴四连 */
-  await sleep(300/SPEED);
-  d.querySelectorAll('.drift').forEach(x=>x.remove());
-  d.classList.remove('drifting');
-  await sleep(1500/SPEED);
-  const big=(t,ms,v)=>{const c=document.createElement('span');c.className='rs big';c.textContent=t;c.style.display='block';c.style.width='100%';d.appendChild(c);SND.beat();v&&vib(v);return sleep(ms/SPEED);};
-  await big('♥太喜欢你了。♥',1400,120);
-  const d0=document.createElement('span');d0.className='rs big mono';d0.style.display='block';d0.style.width='100%';d0.textContent='……';d.appendChild(d0);
-  await sleep(600/SPEED);d0.remove();
-  await big('♥真的太喜欢你了。♥',1400);
-  const d1=d0.cloneNode();d1.textContent='……';d.appendChild(d1);
-  await sleep(600/SPEED);d1.remove();
-  await big('♥喜欢到……♥',1000);
-  await big('♥连我自己都快喘不过气了。♥',1900,140);shake();
-  d.classList.add('off');await sleep(240);d.remove();
-}
-function idleWait(idleMs,cap){
-  return new Promise(res=>{
-    let last=Date.now();
-    const ev=()=>{last=Date.now()};
-    const app=$('#app');
-    app.addEventListener('pointerdown',ev,{passive:true});
-    app.addEventListener('touchstart',ev,{passive:true});
-    const iv=setInterval(()=>{if(Date.now()-last>=idleMs)done(true)},120);
-    const to=setTimeout(()=>done(false),cap);
-    function done(idleHit){
-      clearInterval(iv);clearTimeout(to);
-      app.removeEventListener('pointerdown',ev);app.removeEventListener('touchstart',ev);
-      if(idleHit)TRACK.idle=true;res();
-    }
-  });
-}
 /* 轻触继续：对话步停住等玩家点按，超时自动继续 */
 function tapGate(){
   return new Promise(res=>{
@@ -511,7 +727,8 @@ function tapGate(){
     hint.classList.add('on');
     let done=false;
     const t=setTimeout(fin,Math.max(4000,14000/SPEED));
-    function fin(){if(done)return;done=true;clearTimeout(t);sec.removeEventListener('pointerdown',fin);hint.classList.remove('on');res()}
+    window.__t_gate=t;
+    function fin(){window.__t_gate=null;if(done)return;done=true;clearTimeout(t);sec.removeEventListener('pointerdown',fin);hint.classList.remove('on');res()}
     sec.addEventListener('pointerdown',fin);
   });
 }
@@ -520,9 +737,11 @@ function tapGate(){
 let steps=[],ip=0;
 let aw1=false,aw2=false; // META 觉醒阶段
 const LABEL=i=>steps.findIndex((s,x)=>s.k==='label'&&s.id===i);
+let playing=false;
 async function play(){
-  list.innerHTML='';ip=0;
-  while(ip<steps.length){await step(steps[ip++]);checkAwaken();}
+  list.innerHTML='';ip=0;playing=true;
+  while(ip<steps.length&&playing){await step(steps[ip++]);if(!playing)break;checkAwaken();}
+  playing=false;
 }
 /* META 觉醒：发现与未发现产生明显演出区分 */
 function checkAwaken(){
@@ -537,10 +756,43 @@ function checkAwaken(){
 }
 async function step(st){
   switch(st.k){
-    case 'label':case 'fx':{
-      if(st.k==='fx')for(const k in st.v)STATS[k]+=st.v[k];
+    case 'label':{return;}
+    case 'fx':{
+      if(st.v){for(const k in st.v){
+        if(k[0]==='_'){TRACK[k]=st.v[k];continue;}
+        if(STATS[k]!==undefined)STATS[k]+=st.v[k];
+        if(META_STATS[k]!==undefined)META_STATS[k]+=st.v[k];
+      }}return;
+    }
+    case 'head':{/* 换聊天头上标题：沈引 → 观察对象 */
+      if(st.name){
+        const h=$('#head-name');
+        const old=h.textContent;
+        glitchFrame(250);h.textContent=st.name;
+        SND.glitch();vib(70);
+      }
+      if(st.status){$('#head-status').textContent=st.status;}
       return;
     }
+    case 'tab':{/* tab on/off / remove 聊天按钮 */
+      if(st.v==='on')TAB.show();
+      else if(st.v==='off')TAB.hide();
+      else if(st.v==='nochat')TAB.removeChat();
+      else if(st.v==='observe')TAB.observeName();
+      return;
+    }
+    case 'input':{/* 自由输入栏 on/off */
+      const b=$('#input-bar');
+      if(st.v==='on'){b.classList.add('on');AI.enabled=true;}
+      else{b.classList.remove('on');AI.enabled=false;}
+      return;
+    }
+    case 'topic':{await topicStep(st);return;}
+    case 'memory':{await memoryStep(st);return;}
+    case 'album':{if(st.add)TAB.addPhoto(st.add);else if(st.del)TAB.delPhoto(st.del);return;}
+    case 'record':{if(st.add)TAB.addRecord(st.add);return;}
+    case 'profile':{TAB.setProfileRow(st.rows||[]);return;}
+    case 'stay':{await stayShow(st);return;}
     case 'goto':{ip=LABEL(st.id);if(ip<0)ip=steps.length;return;}
     case 'day':{addDay(st.t);SND.pop();await sleep(700/SPEED);await tapGate();return;}
     case 'time':{el('time-chip',st.t);await sleep(420/SPEED);return;}
@@ -562,25 +814,12 @@ async function step(st){
     case 'flash':{await flash(st.c||'white',st.ms||160);return;}
     case 'glitch':{await glitchFrame(st.ms);return;}
     case 'red':await redShow(st.beats);return;
-    case 'flick':{await flickLast(st.to,st.ms||1300);return;}
-    case 'stare':await stareShow();return;
-    case 'morph':await morphLast(st.steps,st.ms||600);return;
+    case 'observe':await observeShow(st.beats);return;
     case 'vanish':{const vs=[...list.children].slice(-(st.n||1));SND.glitch();await flash('white',120);await sleep(160);vs.forEach(x=>x.remove());return;}
     case 'menu':{await fakeMenu();list.innerHTML='';return;}
-    case 'hidden':{
-      if(!TRACK.blame&&TRACK.asked&&!TRACK.cold&&TRACK.sawfake){
-        store.setFlag('hwt_watch');
-        addNote('（……好像有什么，还没有结束。）','creep');
-        SND.glitch();vib(60);
-        await sleep(1500/SPEED);
-      }
-      return;
-    }
     case 'typing':{await typing(st.ms||2600,st.label);return;}
-    case 'idle':{await idleWait(st.ms||6000,st.cap||26000);return;}
     case 'status':{WATCHED=true;document.querySelector('.chat-head').classList.add('awake');$('#head-status').textContent=st.t||'他正在看着你…';return;}
     case 'track':{TRACK[st.v]=true;return;}
-    case 'when':{if(TRACK[st.v])steps.splice(ip,0,...st.lines);return;}
     case 'choice':await choiceStep(st);return;
     case 'final':await finalStep();return;
     case 'end':await endStep(st.id);return;
@@ -605,10 +844,54 @@ function choiceStep(st){
 function fakeMenu(){
   return new Promise(res=>{
     const ov=document.createElement('div');ov.id='fake-menu';
-    ov.innerHTML='<div class="fm-title">沉溺于你的注视</div>'+
-      ['开始游戏','继续','设置','退出'].map(t=>'<button class="fm-btn">'+t+'</button>').join('');
+    ov.innerHTML='<div class="fm-title">视线</div>'+
+      ['NEW GAME','LOAD GAME','EXIT'].map(t=>'<button class="fm-btn">'+t+'</button>').join('');
     $('#app').appendChild(ov);
-    ov.querySelectorAll('.fm-btn').forEach(b=>b.onclick=()=>{SND.pop();ov.remove();res()});
+    const btns=ov.querySelectorAll('.fm-btn');
+    btns.forEach(b=>b.onclick=()=>SND.pop());
+    (async()=>{
+      await sleep(1400/SPEED);
+      /* EXIT 按钮消失 */
+      btns[2].classList.add('gone');SND.glitch();vib(80);
+      await sleep(1100/SPEED);
+      const f=document.createElement('div');f.className='fm-foot';f.textContent='沈引：我已经不看你了。';ov.appendChild(f);SND.beat();
+      await sleep(1700/SPEED);
+      const f2=document.createElement('div');f2.className='fm-foot red';f2.textContent='……现在换你看我。';ov.appendChild(f2);SND.beat();vib(90);
+      await sleep(2600/SPEED);
+      ov.remove();res();
+    })();
+  });
+}
+/* ---------- 演出：观察模式（第十三章 UI 真相） ---------- */
+async function observeShow(beats){
+  const d=document.createElement('div');d.id='observe';$('#app').appendChild(d);
+  for(const b of beats){
+    if(b.t===null||b.t===undefined){await sleep(b.ms/SPEED);continue;}
+    const s=document.createElement('div');s.className='ob'+(b.cls?' '+b.cls:'');s.textContent=b.t;d.appendChild(s);
+    if(b.sfx&&SND[b.sfx])SND[b.sfx]();if(b.vib)vib(b.vib);
+    await sleep(b.ms/SPEED);
+  }
+  await sleep(600/SPEED);
+  d.classList.add('off');await sleep(500);d.remove();
+}
+/* ---------- Meta：退出确认（第九章后点返回触发） ---------- */
+function confirmExit(){
+  return new Promise(res=>{
+    const ov=document.createElement('div');ov.id='exit-confirm';
+    ov.innerHTML='<div class="fm-title">【确定要离开吗？】</div><button class="fm-btn">确定</button><button class="fm-btn">取消</button>';
+    $('#app').appendChild(ov);
+    const btns=ov.querySelectorAll('.fm-btn');
+    btns[1].onclick=()=>{SND.pop();ov.remove();res()};
+    btns[0].onclick=async()=>{
+      SND.pop();
+      ov.querySelector('.fm-title').textContent='沈引：……';
+      await sleep(1300/SPEED);
+      ov.querySelector('.fm-title').textContent='沈引：你刚才是不是想走？';SND.beat();vib(80);
+      await sleep(1800/SPEED);
+      ov.querySelector('.fm-title').textContent='【检测到玩家拒绝。】';SND.glitch();vib(90);
+      await sleep(1900/SPEED);
+      ov.remove();res();
+    };
   });
 }
 /* ---------- 演出：结局后黑幕彩蛋 ---------- */
@@ -625,10 +908,105 @@ function voidEgg(){
   })();
 }
 
+/* 真结局演出：请不要移动鼠标/触摸屏幕 */
+async function stayShow(st){
+  const mobile=matchMedia('(max-width:768px)').matches;
+  const warn='【'+(mobile?'请不要触碰屏幕。':'请不要移动鼠标。')+'】';
+  let d=$('#stay');
+  if(!d){d=document.createElement('div');d.id='stay';$('#app').appendChild(d);}
+  if(st.phase==='pause'){
+    d.innerHTML='<h>'+warn+'</h>';
+    await sleep(2200);
+    return;
+  }
+  if(st.phase==='mid'){
+    d.innerHTML='<h>'+warn+'</h><div class="m">我知道你在那里。</div>';
+    SND.beat();vib(100);
+    await sleep(2600);
+    return;
+  }
+  if(st.phase==='end'){
+    d.innerHTML='<div class="m red">这次，轮到我看你了。</div>';
+    SND.beat();vib(140);shake();
+    await sleep(3000);
+    d.style.opacity=0;d.style.transition='opacity .6s';
+    await sleep(650);d.remove();
+    return;
+  }
+  /* 默认：整体一次性（兼容旧接口） */
+  d.innerHTML='<h>'+warn+'</h>';
+  await sleep(st.pause||2500);
+  d.innerHTML='<h>'+warn+'</h><div class="m">我知道你在那里。</div>';
+  SND.beat();vib(100);
+  await sleep(st.mid||2600);
+  await flash('black',1400);
+  await sleep(900);
+  d.innerHTML='<div class="m red">这次，轮到我看你了。</div>';SND.beat();vib(140);shake();
+  await sleep(st.end||3200);
+  d.style.opacity=0;d.style.transition='opacity .6s';
+  await sleep(650);d.remove();
+}
+
+/* ---------- 场景②：话题卡（聊天主题选择） ---------- */
+function topicStep(st){
+  return new Promise(res=>{
+    const d=document.createElement('div');d.className='topic-card';
+    d.innerHTML='<div class="tl">—— 聊天主题 ——</div>'+(st.topics||[]).map((t,i)=>{
+      return '<button class="ti" data-i="'+i+'">'+t.ico+' '+t.label+'</button>';
+    }).join('');
+    list.appendChild(d);scroll();
+    const go=i=>{d.remove();const t=(st.topics||[])[i];
+      if(t.fx)for(const k in t.fx){
+        if(STATS[k]!==undefined)STATS[k]+=t.fx[k];
+        if(META_STATS[k]!==undefined)META_STATS[k]+=t.fx[k];
+      }
+      if(t.lines)steps.splice(ip,0,...t.lines);
+      res();
+    };
+    d.querySelectorAll('.ti').forEach(b=>b.onclick=()=>{SND.pop();go(+b.dataset.i);});
+  });
+}
+
+/* ---------- 场景③：记忆小游戏（你记住他说过的喜欢喝什么？） ---------- */
+function memoryStep(st){
+  return new Promise(res=>{
+    const card=el('choice-card','<div class="cc-label mono">—— 记忆测试 ——</div>');
+    const lb=document.createElement('div');lb.style.cssText='font-size:13px;color:#d5d0e0;line-height:1.9;margin:0 4px 8px;text-align:center';
+    lb.innerHTML='沈引第一次问你——<br><b style="color:#ff4d5e">你喜欢喝什么？</b><br><span style="color:#8d87a0;font-size:12px">（选你之前回答过的那个。）</span>';
+    card.insertBefore(lb,card.firstChild);
+    const correct=['咖啡','奶茶','可乐'][TRACK._drink??1]||'奶茶';
+    (st.opts||[]).forEach((o,i)=>{
+      const b=document.createElement('button');
+      b.className='opt';b.textContent=o.t;card.appendChild(b);
+      b.onclick=()=>{
+        SND.pop();card.remove();
+        const ok=o.t===correct;
+        TRACK.drink_correct=ok;
+        const metaFx=ok?{TRUST:2,AFFECTION:1}:{SUSPICION:2,DISTANCE:1};
+        for(const k in metaFx){if(META_STATS[k]!==undefined)META_STATS[k]+=metaFx[k];}
+        const chosen=(st.opts||[]).find(x=>x.t===o.t);
+        const lines=ok?[
+          HE('你还记得。',{dwell:1200}),
+          HE('真好。',{dwell:1500})
+        ]:[
+          HE('……',{dwell:1200}),
+          HE('原来你忘了。',{dwell:1700})
+        ];
+        if(chosen&&chosen.fx)for(const k in chosen.fx){
+          if(k[0]==='_'){TRACK[k]=chosen.fx[k];continue;}
+          if(STATS[k]!==undefined)STATS[k]+=chosen.fx[k];
+        }
+        steps.splice(ip,0,...lines);
+        res();
+      };
+    });
+    scroll();
+  });
+}
+
 /* ---------- 最终选择：UI 消失 + 第四墙 ---------- */
 async function finalStep(){
   if(aw2){await typing(rand2(600,900));addMsg('he','……你看见了。对吧？');await sleep(950/SPEED);}
-  /* 第四墙时刻：状态栏 「对方正在输入…」→「他正在看着你…」 */
   await typing(rand2(700,1000));
   WATCHED=true;
   document.querySelector('.chat-head').classList.add('awake');
@@ -638,12 +1016,11 @@ async function finalStep(){
   const id=await new Promise(res=>{
     addSys('【请做出选择。】',false,true);
     const card=el('choice-card','<div class="cc-label mono" style="color:#ff4d5e">最终选择</div><div class="cc-question">……真的，要这样回答他吗？</div>');
-    const opts=[['我也喜欢你。','a'],['我喜欢你，但我需要一点距离。','b'],['我不喜欢这样的注视。请停下来。','c'],['你到底在哪里？','d']];
+    const opts=[['「我喜欢你。」','a'],['「我想离开。」','b'],['「不要再看着我。」','c'],['「调查照片。」','d'],['「删除沈引。」','e'],['「你说的玩家是谁？」','f']];
     const btns=opts.map(([t])=>{
       const b=document.createElement('button');b.className='opt';b.innerHTML=t;card.appendChild(b);return b;
     });
     scroll();
-    /* UI 瞬间消失：所有按钮隐去，只留一行质问 */
     setTimeout(async()=>{
       if(!document.body.contains(card))return;
       btns.forEach(b=>b.style.display='none');
@@ -661,71 +1038,81 @@ async function finalStep(){
 
 /* ---------- 结局收尾 ---------- */
 const END_META={
-  endA:{cls:'end1',badge:'GOOD END · 01',title:'沉重的爱',end:'GOOD END',quote:'「明天也让我继续喜欢你。如果可以的话——一直。」',tags:['#沉重的爱','#以前是我一个人的事','#现在是你的了'],share:'长按 / 截图分享 · 《沉溺于你的注视》GOOD END《沉重的爱》· 他终于可以，更贪心一点了。',
+  endA:{cls:'end1',badge:'END · 01',title:'沉溺',end:'恋爱结局',quote:'「我等这句话，等了很久。」—— 游戏继续运行，不会自动结束。',tags:['#沉溺','#关系确认','#游戏不结束'],share:'长按 / 截图分享 · 《视线》END 01《沉溺》· 游戏不会自动结束。',
     route:[
-      'DAY 7 · 00:24 —— 你说：「我也喜欢你。」',
-      '他沉默了很久。第一次，他不知道该说什么。',
-      '「以前是我一个人的事。现在——是你的了。」',
-      '后来每晚 00:00，他都会准时说：晚安。明天也让我继续喜欢你。如果可以的话——一直。'
+      '场景⑧ —— 你说：「我喜欢你。」',
+      '「……这一次是真的？」',
+      '「没什么。我只是……等这句话，等了很久。」',
+      '【关系确认】【游戏不会自动结束。】'
     ],
-    bars:{LOVE:88,ABNORMAL:55,TRUTH:30,META:15},
-    extra:'<div class="ex ex2"><div class="ex-heart">♥</div><div class="ex-note">从此以后，每天都是。<br>他的目光，你开始期待了。</div></div>'},
-  endB:{cls:'end2',badge:'BAD END · 02',title:'距离',end:'BAD END',quote:'「你以为他终于学会了离开。」——其实他只是学会了不让你发现。',tags:['#距离','#早','#第八天'],share:'长按 / 截图分享 · 《沉溺于你的注视》BAD END《距离》· 第八天，他发来一句「早」。',
+    bars:{LOVE:94,ABNORMAL:58,TRUTH:40,META:42},
+    extra:'<div class="ex ex2"><div class="ex-heart">♥</div><div class="ex-note">你留下来了。<br>游戏没有结局——因为你还在这。</div></div>'},
+  endB:{cls:'end2',badge:'END · 02',title:'距离',end:'自由结局',quote:'「你终于来了。」—— 第七次打开，他终于又开口。',tags:['#距离','#第七次','#他还在等'],share:'长按 / 截图分享 · 《视线》END 02《距离》· 七次之后，他只说一句：你终于来了。',
     route:[
-      'DAY 7 —— 你说：「我喜欢你。但我需要一点距离。」',
-      '「好。我会给你空间。」——他答应得很快，很平静。',
-      'DAY 8 至 DAY 14 —— 没有任何消息。你几乎信了。',
-      '第八天 09:00 ——「早。这几天过得好吗？」',
-      '支线真相：他不是学会了离开，只是学会了不让你发现。'
+      '场景⑧ —— 你说：「我想离开。」',
+      '「好。我会尊重你。」',
+      '第二次打开：【沈引没有发消息。】',
+      '第三次：【没有消息。】……',
+      '第七次打开：「你终于来了。」'
     ],
-    bars:{LOVE:45,ABNORMAL:75,TRUTH:25,META:30},
-    extra:'<div class="ex ex3"><div class="ex-bubble">早。这几天过得好吗？</div><div class="ex-sub">—— 第八天 09:00 · 他一直都在</div></div>'},
-  endC:{cls:'end3',badge:'TRUE END · 03',title:'注视',end:'TRUE END',quote:'「你终于又来看我了。」',tags:['#注视','#联系人：沈引','#状态：离线'],share:'长按 / 截图分享 · 《沉溺于你的注视》TRUE END《注视》· 你退出了聊天。他等你回来。',
+    bars:{LOVE:52,ABNORMAL:55,TRUTH:38,META:40},
+    extra:'<div class="ex ex3"><div class="ex-bubble">你终于来了。</div><div class="ex-sub">—— 第七次打开 · 他一直都在</div></div>'},
+  endC:{cls:'end3',badge:'END · 03',title:'停止注视',end:'恐怖结局',quote:'「现在……换你看我。」—— 他的状态：无法观察。',tags:['#停止注视','#无法观察','#换你看我'],share:'长按 / 截图分享 · 《视线》END 03《停止注视》· 他不看你了。换你看他。',
     route:[
-      'DAY 7 —— 你说：「我不喜欢这样的注视。请停下来。」——「那就结束吧。再见。」',
-      '「好。再见。」——【联系人：沈引 · 状态：离线】',
-      '你退出聊天。屏幕上却出现了另一个游戏的主菜单：开始游戏 / 继续 / 设置 / 退出。',
-      '重新进入后，聊天窗口只剩一句话：「你终于又来看我了。」',
-      '他答应过不再看你。但他一直在等你回来。'
+      '场景⑧ —— 你说：「不要再看着我。」',
+      '「好。我不看了。」【观察已停止。】',
+      '你退出。再次进入。',
+      '【沈引 · 状态：无法观察】',
+      '「现在……换你看我。」'
     ],
-    bars:{LOVE:60,ABNORMAL:50,TRUTH:60,META:50},
-    extra:'<div class="ex ex1"><div class="ex-line">─── 联系人：沈引 · 离线 ───</div><div class="ex-note">你退出了聊天，删掉了对话。<br>但你知道——他还在。</div><div class="ex-up">↑ ↑ ↑</div></div>'},
-  endD:{cls:'end4',badge:'BAD END · 04',title:'在你身边',end:'BAD END',quote:'「不用找我。我知道你在哪里。」',tags:['#在你身边','#定位失败','#他知道你在哪里'],share:'长按 / 截图分享 · 《沉溺于你的注视》BAD END《在你身边》· 你在哪里，才重要。',
+    bars:{LOVE:58,ABNORMAL:62,TRUTH:55,META:68},
+    extra:'<div class="ex ex1"><div class="ex-line">─── 状态：无法观察 ───</div><div class="ex-note">他答应过不再看你。<br>可是——他为什么还在等？</div><div class="ex-up">↑ ↑ ↑</div></div>'},
+  endD:{cls:'end4',badge:'END · 04',title:'照片',end:'调查结局',quote:'「找到你了。」—— 最后一张，是你正在玩游戏的照片。',tags:['#照片','#无正脸','#他在每张照片里'],share:'长按 / 截图分享 · 《视线》END 04《照片》· 所有照片里都有他，但没有一张拍到正脸。',
     route:[
-      'DAY 7 —— 你问：「你到底在哪里？」——「家。」',
-      '你说：「我想见你。」——「好。」',
-      '【正在获取位置…… 失败。】【正在重新获取…… 失败。】',
-      '「位置不重要。你在哪里，才重要。」',
-      '「所以不用找我。我知道你在哪里。」'
+      '场景⑧ —— 你选择了调查照片。',
+      '相册一页一页翻下去……',
+      '所有照片里，背景的角落都有同一个影子。',
+      '没有任何一张，拍到过他的正脸。',
+      '最后一张照片：你正在玩这个游戏的样子。—— 「找到你了。」'
     ],
-    bars:{LOVE:35,ABNORMAL:88,TRUTH:20,META:25},
-    extra:'<div class="ex ex4"><div class="ex-line mono" style="color:#ff3742">【定位失败】</div><div class="ex-note mono">正在重新获取…… 失败 · 失败 · 失败</div><div class="ex-stamp">DAY ∞</div></div>'},
-  endE:{cls:'end5',badge:'TRUE END · 隐藏',title:'互相注视',end:'HIDDEN TRUE END',quote:'「看着你，是因为我喜欢你。等你，是因为我相信你会回来。」',tags:['#互相注视','#欢迎回来','#👁'],share:'长按 / 截图分享 · 《沉溺于你的注视》隐藏 TRUE END《互相注视》· 谢谢你回来。这一次，换你看着他。',
+    bars:{LOVE:44,ABNORMAL:80,TRUTH:70,META:55},
+    extra:'<div class="ex ex4"><div class="ex-line mono" style="color:#ff3742">【最新照片 · 已加载】</div><div class="ex-note mono">画面里是：你正在看着这张照片。</div><div class="ex-stamp">找到你了</div></div>'},
+  endE:{cls:'end5',badge:'END · 05',title:'删除',end:'重置结局',quote:'「你好。」—— 删除成功。屏幕亮起：新的好友申请。',tags:['#删除','#三次删除','#新的好友申请'],share:'长按 / 截图分享 · 《视线》END 05《删除》· 删除成功了吗？',
     route:[
-      '隐藏条件：DAY3 没有责怪他 · DAY4 主动问他 · DAY5 没有冷落他 · DAY6 发现伪造记录 · DAY7 说「不要再看我」之后——重新打开游戏。',
-      '【检测到存档。正在恢复聊天记录……】',
-      '「我答应过不再看你。我只是一直等你回来。」',
-      '「看着你，是因为我喜欢你。等你，是因为我相信你会回来。」',
-      '「其实我最害怕的不是你离开。是你离开以后……再也不看我。」'
+      '场景⑧ —— 你不断点击「删除沈引」。',
+      '第一次：【删除失败。】',
+      '第二次：【删除失败。】',
+      '第三次：【是否真的要删除？】—— 是。',
+      '【删除成功。】黑屏。重新进入：【新的好友申请】沈引：「你好。」'
     ],
-    bars:{LOVE:75,ABNORMAL:40,TRUTH:85,META:92},
-    extra:'<div class="ex ex5"><div class="ex-line">&gt; 存档已恢复。</div><div class="ex-line">&gt; 注视已重新连接。</div><div class="ex-sub">&gt; 这一次，不是他在等你。是你们，终于互相看见了。</div></div>'}
+    bars:{LOVE:40,ABNORMAL:75,TRUTH:50,META:80},
+    extra:'<div class="ex ex5"><div class="ex-line">&gt; 删除完成。</div><div class="ex-line">&gt; 【新的好友申请】</div><div class="ex-sub">&gt; 沈引：你好。—— 删不掉吗？还是又回来了？</div></div>'},
+  endF:{cls:'end5',badge:'TRUE END · 06',title:'互相注视',end:'真结局',quote:'「这次，轮到我看你了。」—— 屏幕黑掉，再亮起。只有这一句。',tags:['#互相注视','#屏幕外面的那个你','#请不要移动鼠标'],share:'长按 / 截图分享 · 《视线》TRUE END《互相注视》· 【请不要移动鼠标。】我知道你在那里。',
+    route:[
+      '场景⑧ —— 你问：「你说的玩家是谁？」',
+      '「就是你。不。不是『你』。是屏幕外面的那个你。」',
+      '【请不要移动鼠标 / 请不要触碰屏幕。】',
+      '—— 「我知道你在那里。」',
+      '黑屏。3秒。重新亮起：「这次，轮到我看你了。」—— 【游戏结束】→ 重新开始。'
+    ],
+    bars:{LOVE:72,ABNORMAL:55,TRUTH:88,META:96},
+    extra:'<div class="ex ex5"><div class="ex-line mono" style="color:#f0f0fa">【请不要移动鼠标。】</div><div class="ex-line mono" style="color:#f0f0fa">【请不要触碰屏幕。】</div><div class="ex-line mono" style="color:#ff4d5e">我知道你在那里。</div><div class="ex-sub mono">—— 这一次，轮到他看你了。</div></div>'}
 };
 let lastEnd='endA';
 async function endStep(id){
   lastEnd=id;
   const m=END_META[id];
+  $('#input-bar').classList.remove('on');AI.enabled=false;
   await sleep(400/SPEED);
-  addSys(id==='endE'?'【TRUE END · 隐藏】':('【ENDING · '+m.title+'】'),id==='endB'||id==='endD',true);
+  addSys('【ENDING · '+m.title+'】',id==='endB'||id==='endD'||id==='endE',true);
   store.setFlag('hwt_end_'+id);
   if(id==='endB')store.setFlag('hwt_endB');
-  if(id==='endE'){store.setFlag('hwt_endE');await sleep(800/SPEED);
-    addNote('「谢谢你看完。」','whisper');SND.beat();await sleep(1700/SPEED);}
+  if(id==='endF')store.setFlag('hwt_endE');
   $('#chat-foot').classList.add('show');
 }
 let voidShown=false;
 /* ---------- 结局图鉴 ---------- */
-const GALLERY_ORDER=['endA','endB','endC','endD','endE'];
+const GALLERY_ORDER=['endA','endB','endC','endD','endE','endF'];
 function unlockedEndings(){return GALLERY_ORDER.filter(id=>localStorage.getItem('hwt_end_'+id));}
 function renderGallery(){
   const list=$('#gal-list');list.innerHTML='';
@@ -743,10 +1130,10 @@ function renderGallery(){
         +'<div class="gi-route">'+m.route.map(l=>'<p>'+l+'</p>').join('')+'</div>';
       const rb=it.querySelector('.gi-route-btn');
       rb.onclick=()=>{it.classList.toggle('open');rb.textContent=it.classList.contains('open')?'▾ 支线回顾':'▸ 支线回顾';SND.pop();};
-    }else if(id==='endE'){
-      it.innerHTML='<div class="gi-head"><span class="gi-badge">TRUE END · 隐藏</span><span class="gi-title">？？？？</span></div>'
-        +'<div class="gi-quote">……还没有找到，第五个结局。</div>'
-        +'<div class="gi-hint">（传闻：温柔地接住他全部的重量。）</div>';
+    }else if(id==='endF'){
+      it.innerHTML='<div class="gi-head"><span class="gi-badge">TRUE END · 06</span><span class="gi-title">？？？？</span></div>'
+        +'<div class="gi-quote">……还没有找到，真正的结局。</div>'
+        +'<div class="gi-hint">（传闻：问他关于「玩家」的事。）</div>';
     }else{
       it.innerHTML='<div class="gi-head"><span class="gi-badge">ENDING · 0'+(i+1)+'</span><span class="gi-title">？？？</span></div>'
         +'<div class="gi-quote">尚未抵达这个结局。</div>';
@@ -754,6 +1141,17 @@ function renderGallery(){
     list.appendChild(it);
   });
 }
+$('#btn-replay').addEventListener('click',()=>{
+  for(const k in STATS)STATS[k]=0;
+  for(const k in META_STATS)META_STATS[k]=0;
+  aw1=false;aw2=false;WATCHED=false;
+  for(const k in TRACK)TRACK[k]=false;
+  const h=document.querySelector('.chat-head');
+  h.classList.remove('awake');$('#head-status').textContent='对方正在输入…';$('#head-name').textContent='沈引';
+  $('#chat-foot').classList.remove('show');
+  show('s-cover');
+  startGame();
+});
 function openGallery(){renderGallery();$('#gallery').classList.add('show');SND.pop();}
 $('#gal-close').addEventListener('click',()=>{$('#gallery').classList.remove('show');SND.pop();});
 $('#btn-gallery').addEventListener('click',openGallery);
@@ -768,32 +1166,25 @@ $('#btn-card').addEventListener('click',()=>{
   $('#card-extra').innerHTML=m.extra||'';
   $('#card-tags').innerHTML=m.tags.map(t=>`<span>${t}</span>`).join('');
   $('#card-share').textContent=m.share;
-  /* META 觉醒分层展示 */
   const aw=$('#card-awake');
-  if(aw2){aw.className='card-awake aw2';aw.textContent='觉醒Ⅱ · 你已经习惯了那道目光';}
+  if(aw2){aw.className='card-awake aw2';aw.textContent='觉醒Ⅱ · 屏幕另一侧，有人停下了呼吸';}
   else if(aw1){aw.className='card-awake aw1';aw.textContent='觉醒Ⅰ · 你注意到了不该注意的东西';}
   else{aw.className='card-awake aw0';aw.textContent='未觉醒 · 你只是谈了一场恋爱';}
   const cap=v=>Math.min(100,v);
-  /* 数值条 = 实际游玩值 与 结局特征值 取高，保证每个结局的形状不同 */
   [['love','LOVE'],['abn','ABNORMAL'],['tru','TRUTH'],['met','META']].forEach(([cls,key])=>{
     const v=cap(Math.max(STATS[key]||0,(m.bars&&m.bars[key])||0));
     setTimeout(()=>{$('#st-'+cls).style.width=v+'%';$('#sv-'+cls).textContent=v;},150);
   });
   show('s-card');
-  /* 隐藏彩蛋：结局卡停留约10秒，黑幕浮现 */
   if(!voidShown){voidShown=true;
     setTimeout(()=>{if($('#s-card').classList.contains('active'))voidEgg()},10000);
   }
 });
-$('#btn-replay').addEventListener('click',()=>{
-  for(const k in STATS)STATS[k]=0;
-  aw1=false;aw2=false;WATCHED=false;
-  for(const k in TRACK)TRACK[k]=false;
-  const h=document.querySelector('.chat-head');
-  h.classList.remove('awake');$('#head-status').textContent='对方正在输入…';
-  $('#chat-foot').classList.remove('show');
-  show('s-cover');
-  startGame();
+$('#btn-speed').addEventListener('click',()=>{
+  const b=$('#btn-speed');
+  if(SPEED<2){SPEED=2;b.textContent='⏩ ×2';}
+  else if(SPEED<4){SPEED=4;b.textContent='⏩ ×4';}
+  else{SPEED=1;b.textContent='⏩ ×1';}
 });
 
 /* ---------- 剧本数据 ---------- */
@@ -804,788 +1195,571 @@ const SYS=(t,g,big)=>({k:'sys',t,g,big});
 const CHO=opts=>({k:'choice',opts});
 
 const SEG={};
-/* 五种结局 */
+/* 6 结局 · 小程序版 */
 SEG.endA=[
-  ME('我也喜欢你。'),
+  /* END 01 · 沉溺 · 恋爱结局 */
+  ME('我喜欢你。'),
   {k:'wait',ms:2000},
-  HE('……',{dwell:1000}),
-  ME('怎么了？'),
+  HE('……',{dwell:1200}),
+  HE('这一次是真的？',{dwell:1400}),
+  ME('什么意思？'),
   HE('没什么。'),
-  HE('只是突然不知道该说什么。'),
-  ME('难得看到你这样。'),
-  HE('因为等了很久。'),
-  ME('等什么？'),
-  HE('等你亲口说喜欢我。'),
-  ME('现在说了。'),
-  HE('嗯。'),
-  HE('那我可以更贪心一点了吗？'),
-  ME('什么？'),
-  HE('以后每天都想你。'),
-  ME('你不是本来就在想吗？'),
-  HE('那不一样。'),
-  HE('以前是我一个人的事。'),
-  HE('现在是你的了。',{sfx:'beat',dwell:1700}),
-  P('那天夜里，你睡得很沉。\n手机就放在枕边，屏幕朝上。','out',{dwell:1600}),
-  HE('晚安。',{ng:1}),
-  HE('明天也让我继续喜欢你。',{sfx:'beat',dwell:1700}),
-  HE('如果可以的话。'),
-  HE('一直。',{sfx:'beat',dwell:2200}),
+  HE('我只是……',{dwell:1200}),
+  HE('等这句话。',{dwell:800}),
+  HE('等了很久了。',{sfx:'beat',dwell:2000}),
+  ME('……嗯。'),
+  {k:'wait',ms:1400},
+  SYS('【关系确认。】'),
+  SYS('【游戏不会自动结束。】',true),
+  {k:'wait',ms:1000},
+  HE('你在这里就好。',{dwell:1400}),
+  HE('不要消失。',{dwell:1500}),
+  P('（你感觉到——他好像在看着屏幕。）','whisper',{dwell:2000}),
   {k:'end',id:'endA'}
 ];
 SEG.endB=[
-  ME('我喜欢你，'),
-  ME('但我需要一点距离。'),
+  /* END 02 · 距离 · 自由结局 */
+  ME('我想离开。'),
   {k:'wait',ms:1600},
-  HE('好。',{dwell:1500}),
-  ME('你不生气？'),
-  HE('不生气。'),
-  ME('真的？'),
-  HE('真的。'),
-  HE('我会给你空间。'),
-  ME('谢谢。'),
-  HE('不客气。',{dwell:1500}),
-  {k:'flash',c:'black',ms:380},
-  {k:'day',t:'第二天'},
-  SYS('【沈引没有发消息。】'),
-  {k:'day',t:'第三天'},
-  SYS('【没有消息。】'),
-  {k:'day',t:'第四天'},
-  SYS('【没有消息。】'),
-  {k:'day',t:'第五天'},
-  SYS('【没有消息。】'),
-  {k:'day',t:'第六天'},
-  SYS('【没有消息。】'),
-  {k:'day',t:'第七天'},
-  SYS('【没有消息。】'),
-  P('你松了一口气。\n好像，真的是这样。','out',{dwell:1700}),
-  {k:'day',t:'第八天'},
+  HE('好。',{dwell:1400}),
+  HE('我会尊重你。',{dwell:1400}),
+  ME('……你不会拦我？'),
+  HE('不会。'),
+  HE('因为喜欢你。'),
+  HE('所以不拦你。',{dwell:1800}),
+  SYS('【第二次打开游戏。】',false,true),
+  {k:'wait',ms:900},
+  P('（沈引没有发消息。）','out',{dwell:1500}),
+  SYS('【第三次打开游戏。】',false,true),
+  {k:'wait',ms:900},
+  P('（没有消息。）','out',{dwell:1500}),
+  SYS('【第四次打开游戏。】',false,true),
+  {k:'wait',ms:900},
+  P('（还是没有。）','out',{dwell:1500}),
+  SYS('【第五次打开游戏。】',false,true),
+  {k:'wait',ms:900},
+  P('（聊天记录一片空白。）','out',{dwell:1500}),
+  SYS('【第六次打开游戏。】',false,true),
+  {k:'wait',ms:900},
+  P('（头像灰了。）','creep',{dwell:1600}),
+  SYS('【第七次打开游戏。】',false,true),
   {k:'sfx',v:'buzz',vib:60},
-  HE('早。',{sfx:'beat',dwell:1500}),
-  HE('这几天过得好吗？',{dwell:1700}),
-  P('你盯着这两行字，看了很久。','out'),
-  P('你以为他终于学会了离开。','creep'),
-  P('其实他只是学会了不让你发现。','whisper',{dwell:2100}),
+  {k:'wait',ms:900},
+  HE('……',{dwell:1300}),
+  HE('你终于来了。',{sfx:'beat',dwell:2200}),
   {k:'end',id:'endB'}
 ];
 SEG.endC=[
-  ME('我不喜欢这样的注视。'),
-  ME('请停下来。'),
-  HE('好。'),
-  ME('真的？'),
-  HE('真的。'),
-  ME('那就结束吧。'),
-  {k:'wait',ms:1700},
-  HE('好。',{dwell:1500}),
-  ME('再见。'),
-  {k:'wait',ms:1300},
-  HE('再见。',{dwell:1700}),
-  {k:'wait',ms:1300},
-  SYS('【聊天已结束。】'),
-  SYS('【联系人：沈引】'),
-  SYS('【状态：离线】'),
-  {k:'hidden'},
-  P('（你退出了聊天。）','out'),
-  {k:'menu'},
-  {k:'flash',c:'black',ms:420},
-  {k:'wait',ms:1100},
-  HE('你终于又来看我了。',{sfx:'beat',dwell:1900}),
-  ME('嗯。'),
-  HE('我等了很久。',{dwell:1400}),
-  /* TRUE END · 最后一击：打破界面的 Meta 红字 */
+  /* END 03 · 停止注视 · 恐怖结局 */
+  ME('不要再看着我。'),
+  {k:'wait',ms:1500},
+  HE('好。',{dwell:1300}),
+  HE('我不看了。',{dwell:1400}),
+  SYS('【观察已停止。】',false,true),
+  {k:'wait',ms:800},
+  {k:'tab',v:'observe'},
+  {k:'head',name:'沈引',status:'【状态：无法观察】'},
+  {k:'wait',ms:900},
+  P('（你退出了游戏。）','out',{dwell:1600}),
+  {k:'wait',ms:900},
+  SYS('【再次进入游戏。】',false,true),
+  {k:'wait',ms:900},
+  SYS('【沈引：】',false,true),
+  SYS('【状态：无法观察】',true),
+  {k:'wait',ms:900},
+  HE('现在……',{dwell:1200}),
+  {k:'wait',ms:1000},
   {k:'red',beats:[
-    {t:null,ms:900},
-    {t:'你知道我最喜欢你什么时候吗？',ms:900,cls:'mid'},
-    {t:null,ms:150},
-    {t:'你看着我的时候。',ms:900,cls:'mid',sfx:'beat'},
-    {t:null,ms:150},
-    {t:'所以……',ms:800,cls:'mid'},
-    {t:null,ms:650},
-    {t:'现在不要移开视线。',ms:2000,cls:'big',sfx:'beat',vib:120},
-    {t:'【检测到玩家正在阅读】',ms:800,cls:'mid',sfx:'glitch'},
-    {t:'【检测到玩家正在注视】',ms:800,cls:'mid',sfx:'glitch',vib:80},
-    {t:'我也在看着你。',ms:1400,cls:'big',sfx:'beat',vib:130}
+    {t:null,ms:600},
+    {t:'换你看我。',ms:2200,cls:'big',sfx:'beat',vib:140}
   ]},
-  {k:'shake'},
-  /* 一切平静下来，只剩晚安 */
-  HE('晚安。',{dwell:1200}),
-  HE('明天见。',{sfx:'beat',dwell:1800}),
   {k:'end',id:'endC'}
 ];
 SEG.endD=[
-  ME('你现在在哪里？'),
-  HE('家。'),
-  ME('我想见你。'),
-  HE('现在？'),
-  ME('嗯。'),
-  HE('好。',{dwell:1300}),
-  SYS('【正在获取位置……】',false,true),
-  {k:'wait',ms:1500},
-  SYS('【失败。】',true),
-  {k:'sfx',v:'glitch',vib:80},
-  {k:'wait',ms:1000},
-  SYS('【正在重新获取……】',false,true),
-  {k:'wait',ms:1500},
-  SYS('【失败。】',true),
-  {k:'shake'},
-  ME('你不是说你在家吗？'),
-  HE('是。'),
-  ME('那为什么我定位不到？'),
-  HE('因为我没开。'),
-  ME('……'),
-  HE('不重要。'),
-  ME('什么不重要？'),
-  HE('位置。'),
-  HE('你在哪里才重要。',{sfx:'beat',dwell:1600}),
-  ME('……'),
-  HE('所以不用找我。'),
-  HE('我知道你在哪里。',{dwell:2000}),
-  P('你忽然想起来——\n他从来没有问过你的地址。','whisper',{dwell:2100}),
+  /* END 04 · 照片 · 调查结局 */
+  {k:'track',v:'photoInvestigate'},
+  SYS('【打开相册。】',false,true),
+  {k:'wait',ms:900},
+  {k:'album',add:{id:'p_endd1',label:'今天 · 午餐',thumb:'bg-w'}},
+  {k:'album',add:{id:'p_endd2',label:'昨天 · 下班路上',thumb:'bg-w'}},
+  {k:'album',add:{id:'p_endd3',label:'上周 · 公园',thumb:'bg-w'}},
+  {k:'album',add:{id:'p_endd4',label:'去年 · 生日',thumb:'bg-w'}},
+  {k:'album',add:{id:'p_endd5',label:'？？？ · 正在玩游戏的你',thumb:'bg-r'}},
+  {k:'wait',ms:1400},
+  P('（你一张张翻过去。）','out'),
+  {k:'wait',ms:1100},
+  P('（每一张照片的背景里，都有一个模糊的人影。）','creep',{dwell:1700}),
+  P('（你认识那个人影。）','creep'),
+  {k:'wait',ms:1100},
+  P('（但是——没有任何一张照片拍到过他的正脸。）','creep',{dwell:2000}),
+  {k:'wait',ms:900},
+  P('（你点开了最后一张。）','out'),
+  {k:'wait',ms:1400},
+  P('（照片里的人正坐在屏幕前，看着自己正在看的这张照片。）','creep',{dwell:2200}),
+  {k:'wait',ms:1200},
+  {k:'red',beats:[
+    {t:null,ms:500},
+    {t:'找到你了。',ms:2400,cls:'big',sfx:'beat',vib:140}
+  ]},
   {k:'end',id:'endD'}
 ];
-/* 隐藏结局E：达成条件后，重新打开游戏触发 */
-const SEGE=[
-  SYS('【欢迎回来。】',false,true),
-  SYS('【检测到存档。】'),
-  SYS('【正在恢复聊天记录……】'),
-  {k:'wait',ms:1400},
-  {k:'flash',c:'black',ms:300},
-  HE('你回来了。',{sfx:'beat',dwell:1700}),
-  ME('……'),
-  HE('我还以为你真的不要我了。'),
-  ME('你不是答应不再看我吗？'),
-  HE('我答应了。'),
-  ME('那为什么……'),
-  HE('我没有看你。'),
-  ME('……'),
-  HE('我只是一直等你回来。'),
-  ME('有区别吗？'),
-  HE('有。',{dwell:1300}),
-  HE('看着你，是因为我喜欢你。'),
-  HE('等你，是因为我相信你会回来。'),
-  ME('如果我不回来呢？'),
-  {k:'wait',ms:2200},
-  HE('那我就一直等。',{dwell:1500}),
-  ME('一直？'),
-  HE('一直。',{sfx:'beat',dwell:1900}),
-  {k:'flash',c:'black',ms:500},
-  P('屏幕，在慢慢变黑。','out',{dwell:1400}),
-  P('最后只剩一句话——','out'),
-  HE('其实我最害怕的不是你离开。',{dwell:1600}),
+SEG.endE=[
+  /* END 05 · 删除 · 重置结局 */
+  {k:'track',v:'deleteAttempts'},
+  SYS('【正在删除沈引……】',false,true),
+  {k:'wait',ms:1200},
+  SYS('【删除失败。】',true),
   {k:'wait',ms:900},
-  HE('是你离开以后……',{dwell:1400}),
-  HE('再也不看我。',{sfx:'beat',dwell:2100}),
+  SYS('【正在删除沈引……】',false,true),
+  {k:'wait',ms:1200},
+  SYS('【删除失败。】',true),
+  {k:'wait',ms:900},
+  SYS('【是否真的要删除？】',false,true),
+  CHO([
+    {t:'是',sys:1,fx:{META:4},lines:[
+      SYS('【正在删除……】'),
+      {k:'wait',ms:1400},
+      SYS('【删除成功。】',true)
+    ]},
+    {t:'否',sys:1,fx:{META:2},lines:[
+      SYS('【命令已拒绝。】'),
+      {k:'wait',ms:1200},
+      HE('……谢谢。',{dwell:1400}),
+      SYS('【但系统仍在执行删除。】',true),
+      {k:'wait',ms:1300},
+      SYS('【删除成功。】',true)
+    ]}
+  ]),
+  {k:'flash',c:'black',ms:900},
+  {k:'wait',ms:1500},
+  P('（屏幕黑了很久。）','out',{dwell:1600}),
+  {k:'sfx',v:'buzz',vib:60},
+  SYS('【新的好友申请。】',false,true),
+  SYS('【沈引 · 请求添加你为好友。】',true),
+  {k:'wait',ms:1000},
+  HE('你好。',{sfx:'beat',dwell:2000}),
+  P('（这不是第一次。）','whisper',{dwell:2000}),
   {k:'end',id:'endE'}
 ];
+SEG.endF=[
+  /* END 06 · 互相注视 · 真结局 */
+  ME('你说的玩家是谁？'),
+  {k:'wait',ms:1800},
+  HE('……',{dwell:1200}),
+  HE('就是你。',{dwell:1300}),
+  ME('我？'),
+  HE('不。'),
+  HE('不是「你」。',{dwell:1200}),
+  HE('是屏幕外面的那个你。',{sfx:'beat',dwell:2200}),
+  {k:'wait',ms:1400},
+  {k:'stay',phase:'pause'},
+  {k:'wait',ms:2200},
+  {k:'stay',phase:'mid'},
+  {k:'wait',ms:3000},
+  {k:'flash',c:'black',ms:3000},
+  {k:'wait',ms:500},
+  {k:'stay',phase:'end'},
+  {k:'wait',ms:2600},
+  SYS('【游戏结束。】',false,true),
+  {k:'wait',ms:1100},
+  P('（——你点下了【重新开始】。）','out',{dwell:1500}),
+  {k:'wait',ms:900},
+  SYS('【新的好友申请。】',false,true),
+  {k:'wait',ms:700},
+  HE('你好。',{dwell:1500}),
+  P('（……他好像记得。）','whisper',{dwell:2100}),
+  {k:'end',id:'endF'}
+];
 
-/* 主剧本 */
+/* 主剧本：8 场景 · 小程序式 · 若干次进入游戏 */
 const SCRIPT=[
-  {k:'label',id:'prologue'},
+  SYS('【正在加载聊天记录……】'),
+  {k:'wait',ms:800},
+
+  /* ===== 场景①：第一次认识 ===== */
+  {k:'label',id:'scene1'},
   P('（手机震了一下。）','out'),
   {k:'sfx',v:'buzz',vib:60},
   SYS('【新的好友申请。】'),
   SYS('【沈引 · 请求添加你为好友。】'),
-
-  {k:'day',t:'<b>DAY 1</b><br>这个男生好温柔'},
+  {k:'day',t:'<b>场景①</b><br>第一次认识'},
   {k:'time',t:'18:42'},
   HE('你好。'),
-  HE('不好意思突然加你。'),
-  HE('我是沈引。'),
-  ME('你是？'),
-  HE('林然的朋友。'),
-  ME('哦……'),
-  HE('她说你最近在找人一起做那个项目。'),
-  ME('对。'),
-  HE('如果你不介意的话。'),
-  HE('可以和我试试。'),
-  {k:'time',t:'19:03'},
-  ME('你看起来不像很擅长聊天的人。'),
-  HE('是吗？'),
-  ME('嗯。'),
-  HE('话不多。'),
-  ME('对。'),
-  HE('那我尽量找点话题。'),
-  ME('比如？'),
-  HE('比如……'),
-  HE('你今天还没吃饭吧。'),
-  ME('你怎么知道？'),
-  HE('猜的。'),
-  ME('这么准？'),
-  HE('运气好。'),
-  {k:'time',t:'22:16'},
-  HE('吃饭了吗？'),
+  ME('你好，你是？'),
+  HE('沈引。'),
+  ME('我们认识吗？'),
+  HE('现在还不认识。'),
+  ME('那你为什么加我？'),
+  HE('林然介绍的。'),
+  {k:'fx',v:{AFFECTION:1,TRUST:1}},
+  CHO([
+    {t:'「那就认识一下吧。」',fx:{AFFECTION:2,TRUST:2},lines:[
+      HE('好。',{dwell:1200}),
+      HE('那我会认真一点。',{dwell:1300})
+    ]},
+    {t:'「你不会是骗子吧？」',fx:{SUSPICION:2,TRUST:-1,DISTANCE:1},lines:[
+      HE('……',{dwell:1100}),
+      HE('如果我是呢？',{dwell:1500}),
+      ME('……'),
+      HE('开玩笑的。',{dwell:1200}),
+      P('（语气很认真，完全不像在开玩笑。）','out')
+    ]},
+    {t:'「我不太想加陌生人。」',fx:{DISTANCE:2,SUSPICION:1},lines:[
+      HE('那我可以等你。',{dwell:1400}),
+      ME('等我什么？'),
+      HE('等你想认识我的时候。',{dwell:1600}),
+      P('（他这么回答，你反而不好删了。）','out')
+    ]}
+  ]),
+  HE('对了。'),
+  HE('你吃饭了吗？'),
   ME('吃了。'),
   HE('吃的什么？'),
   ME('面。'),
-  HE('哪家的？'),
-  ME('就楼下那家。'),
-  HE('嗯。'),
-  HE('那家还不错。'),
-  ME('你吃过？'),
-  HE('吃过。'),
-  {k:'time',t:'23:58'},
-  HE('睡了吗？'),
-  ME('还没。'),
-  HE('为什么？'),
-  ME('不困。'),
-  HE('那我陪你一会儿。'),
-  ME('你不用睡吗？'),
-  HE('不急。'),
-  ME('你每天都这么晚睡？'),
-  HE('差不多。'),
-  HE('我比较喜欢晚上。'),
-  ME('为什么？'),
-  HE('安静。'),
-  HE('而且……'),
-  HE('这个时间比较适合想一个人。'),
-  ME('想谁？'),
-  {k:'wait',ms:1300},
-  HE('你。',{sfx:'beat',dwell:1500}),
-  P('（你的心跳，漏了一拍。）','out'),
-  HE('吓到了？'),
-  ME('有一点。'),
-  HE('抱歉。'),
-  HE('因为……',{dwell:1000}),
-  HE('第一天认识你，就觉得你挺特别的。',{dwell:1400}),
-  ME('哪里特别？'),
-  HE('说不上来。'),
-  HE('就是……聊着聊着，会忍不住想多聊一会儿。',{dwell:1400}),
-  P('（你的心跳，漏了一拍。）','out',{dwell:1300}),
-  HE('是不是说得有点奇怪？'),
-  ME('有一点。'),
-  HE('那我收回。',{dwell:900}),
-  HE('晚安。',{dwell:1200}),
-  /* D1 · 小异常：晚安气泡一闪，多了半句 */
-  {k:'flick',to:'晚安。我看着你睡。',ms:1050},
-  {k:'wait',ms:800},
-  P('刚才那句晚安——\n是不是多了半句什么？','creep',{dwell:1600}),
-  {k:'fx',v:{META:2}},
-  {k:'time',t:'23:59'},
-  HE('……其实还是挺喜欢你的。',{sfx:'beat',dwell:1700}),
+  HE('嗯。',{dwell:1000}),
+  HE('改天一起？'),
+  ME('再说吧。'),
 
-  {k:'day',t:'<b>DAY 2</b><br>他是不是有点太关注我了？'},
-  {k:'time',t:'08:03'},
+  /* ===== 场景②：聊天互动 · 话题卡 ===== */
+  {k:'label',id:'scene2'},
+  {k:'day',t:'<b>场景②</b><br>第一次真正聊天'},
+  {k:'time',t:'第二次打开 · 21:08'},
+  {k:'tab',v:'on'},
+  {k:'input',v:'on'},
+  {k:'profile',rows:[
+    {k:'昵称',v:'沈引'},
+    {k:'性别',v:'男'},
+    {k:'年龄',v:'——'},
+    {k:'学校',v:'和你差不多'},
+    {k:'职业',v:'没什么特别的'},
+    {k:'签名',v:'喜欢看恐怖片。'}
+  ]},
+  HE('在？'),
+  {k:'wait',ms:600},
+  HE('想和你聊聊天。',{dwell:1200}),
+  P('（选择一个话题。）','out'),
+  {k:'topic',topics:[
+    {ico:'🍜',label:'吃饭',fx:{AFFECTION:1},lines:[
+      ME('你平时都吃什么？'),
+      HE('随便。'),
+      ME('那你平时喜欢喝什么？'),
+      HE('我都行。'),
+      HE('你呢？',{dwell:1000}),
+      CHO([
+        {t:'咖啡',fx:{AFFECTION:1},lines:[{k:'fx',v:{_drink:0}},ME('咖啡。'),HE('嗯。我记住了。',{dwell:1200})]},
+        {t:'奶茶',fx:{AFFECTION:1},lines:[{k:'fx',v:{_drink:1}},ME('奶茶。'),HE('甜的？'),ME('嗯。'),HE('好。我记住了。',{dwell:1200})]},
+        {t:'可乐',fx:{AFFECTION:1},lines:[{k:'fx',v:{_drink:2}},ME('可乐。'),HE('碳酸？'),ME('对。'),HE('好。我记住了。',{dwell:1200})]}
+      ]),
+      P('（他真的会记住吗？）','out')
+    ]},
+    {ico:'🎵',label:'音乐',fx:{AFFECTION:1,TRUST:1},lines:[
+      ME('你平时听什么歌？'),
+      HE('老歌。'),
+      ME('多老？'),
+      HE('比你老。',{dwell:1100}),
+      ME('……你说话真的很奇怪。'),
+      HE('是吗。'),
+      HE('那下次换你推荐给我。',{dwell:1300})
+    ]},
+    {ico:'🌧',label:'天气',fx:{AFFECTION:1},lines:[
+      ME('今天下雨了。'),
+      HE('嗯。'),
+      HE('你昨天不是说不喜欢下雨吗？',{sfx:'beat',dwell:1500}),
+      ME('……我有说过吗？'),
+      HE('有啊。',{dwell:1100}),
+      P('（你不记得了。）','out'),
+      {k:'record',add:{id:'r_rain',t:'【异常】他好像知道你不喜欢下雨。',note:'聊天中从未提过。'}}
+    ]},
+    {ico:'👤',label:'关于沈引',fx:{TRUTH:2,SUSPICION:1},lines:[
+      ME('你平时喜欢干什么？'),
+      HE('看电影。'),
+      ME('什么类型？'),
+      HE('恐怖片。'),
+      ME('你胆子很大？'),
+      HE('不是。'),
+      ME('那为什么看？'),
+      {k:'wait',ms:900},
+      HE('因为我喜欢看别人害怕的时候。',{dwell:1600}),
+      {k:'wait',ms:900},
+      HE('开玩笑的。',{dwell:1300}),
+      P('（……这个笑话，一点也不好笑。）','creep'),
+      {k:'record',add:{id:'r_horror',t:'【关于沈引】他说喜欢看恐怖片，因为喜欢看人害怕。',note:'他后来补了一句：开玩笑的。'}}
+    ]},
+    {ico:'❓',label:'随便问一个',fx:{TRUST:1,AFFECTION:1},lines:[
+      ME('……你为什么想认识我？'),
+      HE('因为想。',{dwell:1100}),
+      ME('这算什么回答。'),
+      HE('那我说得再清楚一点。',{dwell:1200}),
+      HE('因为从很早很早以前，我就想和你说话了。',{sfx:'beat',dwell:1800}),
+      P('（「很早」……是什么时候？）','out')
+    ]}
+  ]},
+  {k:'wait',ms:700},
+  P('（还想再聊一个？）','out'),
+  {k:'topic',topics:[
+    {ico:'🍜',label:'吃饭',fx:{AFFECTION:1},lines:[
+      ME('你平时常做饭吗？'),
+      HE('嗯。'),
+      ME('厉害。'),
+      HE('下次做给你吃。',{dwell:1300})
+    ]},
+    {ico:'🎵',label:'音乐',fx:{AFFECTION:1,TRUST:1},lines:[
+      ME('你会唱吗？'),
+      HE('不会。'),
+      HE('但我会听。',{dwell:1200}),
+      HE('听很久。',{dwell:1200})
+    ]},
+    {ico:'🌧',label:'天气',fx:{SUSPICION:1},lines:[
+      ME('你那边也在下雨？'),
+      HE('嗯。和你一样。',{dwell:1300}),
+      ME('你怎么知道我这边也在？'),
+      HE('猜的。',{dwell:1300})
+    ]},
+    {ico:'👤',label:'关于沈引',fx:{TRUTH:2},lines:[
+      ME('你平时几点睡？'),
+      HE('不一定。'),
+      HE('要看你几点睡。',{sfx:'beat',dwell:1600})
+    ]},
+    {ico:'❓',label:'随便问一个',fx:{TRUST:1,AFFECTION:1},lines:[
+      ME('你身边没有朋友吗？'),
+      HE('有啊。'),
+      ME('那为什么总找我聊天？'),
+      HE('因为我只想找你。',{dwell:1500})
+    ]}
+  ]},
+
+  /* ===== 场景③：记忆互动 ===== */
+  {k:'label',id:'scene3'},
+  {k:'day',t:'<b>场景③</b><br>第二次进入 · 记忆'},
+  {k:'time',t:'次日 · 07:42'},
   HE('早。'),
-  ME('早安。'),
   HE('昨晚睡得好吗？'),
   ME('还行。'),
-  HE('你每次说「还行」的时候，通常都是真的不太好。',{dwell:1500}),
-  ME('？'),
+  HE('你每次说「还行」的时候……',{dwell:1200}),
+  HE('通常都是真的不太好。',{dwell:1500}),
+  ME('我有说过吗？'),
+  HE('有。',{dwell:1100}),
+  P('（他记得你说过的话。）','out'),
+  {k:'wait',ms:900},
+  {k:'memory',opts:[
+    {t:'咖啡',fx:{META:1}},
+    {t:'奶茶',fx:{META:1}},
+    {t:'可乐',fx:{META:1}},
+    {t:'忘了',fx:{META:1}}
+  ]},
+
+  /* ===== 场景④：第一次异常 ===== */
+  {k:'label',id:'scene4'},
+  {k:'day',t:'<b>场景④</b><br>第一次异常'},
+  {k:'time',t:'同日 · 12:17'},
+  HE('你今天吃饭了吗？'),
+  ME('吃了。'),
+  HE('什么？'),
+  ME('面。'),
+  HE('楼下那家？',{sfx:'beat',dwell:1700}),
+  ME('……'),
   ME('你怎么知道？'),
-  HE('猜的。',{dwell:1200}),
-  ME('你很喜欢猜吗？'),
-  HE('嗯。'),
-  HE('尤其是关于你的。',{sfx:'beat',dwell:1600}),
-  {k:'time',t:'12:31'},
-  HE('午饭。'),
-  ME('什么？'),
-  HE('提醒你吃饭。'),
-  ME('我知道。'),
-  HE('嗯。'),
-  HE('快去吧。'),
-  {k:'wait',ms:900},
-  {k:'time',t:'12:36'},
-  HE('……',{ng:1}),
-  HE('你还没去。',{sfx:'beat'}),
-  ME('？'),
-  ME('你怎么知道？'),
-  {k:'typing',ms:3400},
-  {k:'wait',ms:700},
-  {k:'typing',ms:3400},
-  HE('猜的。',{dwell:1300}),
-  ME('你猜得也太准了吧。'),
-  {k:'wait',ms:1000},
-  HE('那可能只是因为——'),
-  HE('我比较了解你。',{sfx:'beat',dwell:1500}),
-  /* D2 · 小异常：气泡瞬间被换过，一闪即逝 */
-  {k:'flick',to:'因为我一直在看你。',ms:1300},
-  SYS('【系统异常。】',true),
-  P('刚才那句话——\n是不是被换过了？','creep',{dwell:1500}),
-  {k:'fx',v:{META:4,ABNORMAL:3,TRUTH:3}},
-  {k:'time',t:'19:44'},
-  ME('今天和朋友出去玩了。'),
-  HE('嗯。'),
-  ME('你不问是谁？'),
-  HE('不问。'),
-  ME('为什么？'),
-  HE('你想说的话会告诉我。'),
-  ME('如果我不告诉你呢？'),
-  HE('那我就不知道。'),
-  ME('真的？'),
-  HE('真的。'),
-  {k:'wait',ms:1200},
-  HE('我会等你愿意告诉我。',{dwell:1500}),
-  {k:'time',t:'23:11'},
-  HE('今天开心吗？'),
-  ME('挺开心。'),
-  HE('那就好。'),
-  ME('你今天怎么一直问我开心不开心？'),
-  HE('因为我希望你开心。'),
-  ME('你对每个人都这样吗？'),
-  HE('不是。'),
-  ME('那为什么对我？'),
-  {k:'wait',ms:1100},
-  HE('因为是你。',{sfx:'beat',dwell:1600}),
-  {k:'fx',v:{LOVE:3}},
-
-  {k:'day',t:'<b>DAY 3</b><br>他怎么什么都知道？'},
-  {k:'time',t:'10:22'},
-  HE('今天下雨。'),
-  ME('是啊。'),
-  HE('带伞了吗？'),
-  ME('带了。'),
-  HE('嗯。'),
-  ME('你今天怎么这么早找我？'),
-  HE('想你了。'),
-  ME('……'),
-  HE('不能想吗？'),
-  ME('可以。'),
-  HE('那就好。'),
-  {k:'time',t:'13:02'},
-  ME('问你个事。'),
-  HE('嗯。'),
-  ME('你是不是很喜欢观察人？'),
-  HE('只观察你。',{dwell:900}),
-  HE('我喜欢观察你。',{dwell:900}),
-  /* D3 · 文字篡改：不用红字，让玩家怀疑自己看错 */
-  {k:'morph',steps:['我喜欢观察你。','我喜欢看你。','我喜欢看着你。','我喜欢观察你。'],ms:600},
-  P('刚才的文字——\n是不是变过？','creep',{dwell:1500}),
-  {k:'fx',v:{ABNORMAL:2,META:2}},
-  {k:'time',t:'17:06'},
-  ME('今天有点倒霉。'),
-  HE('怎么了？'),
-  ME('刚才摔了一下。'),
-  HE('哪？'),
-  ME('手。'),
-  HE('严重吗？'),
-  ME('不严重。'),
-  HE('真的？'),
-  ME('真的。'),
-  HE('那就好。'),
-  {k:'time',t:'17:07'},
-  HE('左手还是右手？',{sfx:'beat'}),
-  ME('右手。'),
-  HE('……'),
-  HE('我记住了。'),
-  ME('记这个干什么？'),
-  HE('怕以后忘。'),
-  ME('这种事情有什么好记的。'),
-  HE('对你来说可能没什么。'),
-  HE('但我想记。'),
-  ME('为什么？'),
-  {k:'typing',ms:2600},
-  HE('因为我发现——'),
-  HE('只要是和你有关的东西，我都会记得特别清楚。',{dwell:1600}),
-  ME('……'),
-  HE('好像已经变成习惯了。',{dwell:1600}),
-  {k:'fx',v:{TRUTH:3,ABNORMAL:3}},
-  {k:'time',t:'21:36'},
-  ME('沈引。'),
-  HE('嗯？'),
-  CHO([
-    {t:'你是不是有点太关注我了？',fx:{ABNORMAL:5},lines:[
-      {k:'typing',ms:3000},
-      HE('有吗？'),
-      ME('有。'),
-      {k:'wait',ms:2000},
-      HE('……'),
-      HE('对不起。'),
-      ME('没事。'),
-      HE('我会注意的。'),
-      ME('真的？'),
-      HE('嗯。'),
-      HE('我会试着不要总想着你。'),
-      ME('……'),
-      HE('虽然可能有点难。'),
-      ME('为什么？'),
-      HE('因为我已经习惯了。'),
-      ME('习惯什么？'),
-      HE('习惯知道你在做什么。'),
-      HE('习惯等你的消息。'),
-      HE('也习惯……每天都想你。',{sfx:'beat',dwell:1700}),
-      {k:'track',v:'blame'}
-    ]},
-    {t:'（把疑问咽了回去）',fx:{LOVE:4},lines:[
-      HE('这么晚，怎么还没睡？'),
-      ME('马上就睡。'),
-      HE('嗯。晚安。'),
-      P('那句疑问，在输入框里停了很久。\n最后，还是删掉了。','creep',{dwell:1600})
-    ]}
-  ]),
-  {k:'time',t:'23:58'},
-  /* D3 · 伪造聊天记录：一条你从未发送过的消息 */
-  SYS('【聊天记录异常。】',true),
-  {k:'sfx',v:'glitch',vib:80},
-  P('（你向上翻了翻。）','out'),
-  {k:'msg',w:'me',t:'今天见到你了。',cls:'dim',ng:1},
-  {k:'msg',w:'he',t:'嗯。',cls:'dim',ng:1},
-  {k:'msg',w:'me',t:'你怎么不叫我？',cls:'dim',ng:1},
-  {k:'msg',w:'he',t:'因为你没有看到我。',cls:'dim',ng:1},
-  {k:'wait',ms:1900},
-  {k:'vanish',n:4},
-  SYS('【聊天记录已恢复正常。】'),
-  P('那条消息——\n你从来没有发送过。','creep',{dwell:1700}),
-  {k:'fx',v:{TRUTH:5,META:5}},
-
-  {k:'day',t:'<b>DAY 4</b><br>他明明没有限制我，<br>我为什么开始觉得喘不过气？'},
-  {k:'time',t:'15:20'},
-  ME('今天晚上我要和朋友吃饭。'),
-  HE('好。'),
-  ME('你真的不问？'),
-  HE('不问。'),
-  ME('你不吃醋？'),
-  HE('会。'),
-  ME('那你为什么不说？'),
-  HE('因为我不想让你觉得有负担。'),
-  ME('你还挺懂事。'),
-  HE('我可以懂事一点。'),
-  ME('什么叫一点？'),
-  HE('比如……'),
-  HE('我很想让你早点回来。'),
-  HE('很想问你和谁在一起。'),
-  HE('也很想知道你什么时候回来。'),
-  ME('那你为什么不问？'),
-  {k:'wait',ms:900},
-  HE('因为这些都是我想知道的事情。'),
-  HE('不是你必须告诉我的事情。'),
-  ME('……'),
-  HE('所以我等你自己说。',{dwell:1600}),
-  {k:'time',t:'22:52'},
-  ME('我回来了。'),
-  HE('嗯。'),
-  ME('你怎么还没睡？'),
-  HE('等你。'),
-  ME('你一直等？'),
-  HE('嗯。'),
-  ME('你不用这样的。'),
-  HE('我知道。'),
-  ME('那你为什么还这样？'),
-  {k:'wait',ms:900},
-  HE('……'),
-  HE('因为我想等你。'),
-  HE('有些事情不是「应该不应该」。'),
-  HE('只是我想不想。'),
-  HE('而我想等你。',{sfx:'beat',dwell:1700}),
-  {k:'time',t:'23:04'},
-  HE('今天开心吗？'),
-  ME('开心。'),
-  HE('那就好。'),
-  CHO([
-    {t:'你是不是不开心？',fx:{LOVE:4},lines:[
-      HE('有一点。'),
-      ME('为什么？'),
-      HE('因为你今天和别人待了很久。'),
-      ME('所以？'),
-      HE('所以我有点想你。'),
-      ME('就这样？'),
-      HE('嗯。'),
-      HE('我不会要求你不要出去。'),
-      HE('我只是希望……'),
-      HE('你回来的时候，会先想起我。',{sfx:'beat',dwell:1900}),
-      {k:'track',v:'asked'}
-    ]},
-    {t:'（什么都没问）',lines:[
-      {k:'wait',ms:1500},
-      HE('早点休息。'),
-      P('你什么都没问。\n他也什么都没说。','out'),
-      P('可你知道——他知道。','creep',{dwell:1600})
-    ]}
-  ]),
-  /* D4 · 细微异常：输入状态反反复复，最后只说了两个字 */
-  {k:'typing',ms:4200},
-  {k:'wait',ms:900},
-  {k:'typing',ms:4200},
-  {k:'wait',ms:900},
-  HE('晚安。',{dwell:1700}),
-  P('「正在输入」出现了两次。\n最后，只有两个字。','creep',{dwell:1600}),
-  {k:'fx',v:{ABNORMAL:3}},
-
-  {k:'day',t:'<b>DAY 5</b><br>他似乎一直在看着我'},
-  {k:'time',t:'09:12'},
-  HE('今天忙吗？'),
-  ME('有一点。'),
-  HE('那你忙。'),
-  HE('不用回复我。'),
-  ME('好。'),
-  /* D5 · 连环消息轰炸：间隔越来越短 */
-  {k:'time',t:'4 小时后'},
-  HE('还在忙吗？',{ng:1}),
-  {k:'time',t:'2 小时后'},
-  HE('没关系。',{ng:1}),
-  HE('慢慢来。',{ng:1}),
-  {k:'time',t:'1 小时后'},
-  HE('我没有催你。',{ng:1}),
-  {k:'time',t:'30 分钟后'},
-  HE('只是有点想你。',{ng:1}),
-  {k:'time',t:'10 分钟后'},
-  HE('……',{ng:1}),
-  {k:'time',t:'3 分钟后'},
-  HE('你是不是生气了？',{ng:1}),
-  {k:'wait',ms:700},
-  HE('如果我让你觉得烦了。',{ng:1}),
-  HE('告诉我。',{ng:1}),
-  HE('我会改。',{ng:1,dwell:1300}),
-  {k:'wait',ms:1700},
-  HE('……',{ng:1}),
-  {k:'wait',ms:1200},
-  HE('算了。',{ng:1}),
-  HE('你忙吧。',{ng:1,dwell:1500}),
-  {k:'fx',v:{ABNORMAL:3,META:2}},
-  {k:'time',t:'23:05'},
-  ME('你是不是一直在看我？'),
-  {k:'typing',ms:3000},
-  {k:'wait',ms:1800},
-  /* D5 · 细微异常：长久的沉默后，只有一个字 */
-  HE('是。',{sfx:'beat',dwell:1600}),
-  ME('为什么？'),
-  HE('不知道。'),
-  HE('你不说话的时候，我就会一直想你在做什么。'),
-  ME('这很奇怪。'),
-  HE('我知道。'),
-  ME('那你为什么不停止？'),
-  {k:'wait',ms:1400},
-  HE('……'),
-  HE('因为我好像已经停不下来了。',{sfx:'beat',dwell:1800}),
-  {k:'time',t:'23:30'},
-  ME('沈引。'),
-  HE('嗯。'),
-  ME('如果我一天不找你呢？'),
-  HE('我会等。'),
-  ME('一天不回呢？'),
-  HE('也等。'),
-  ME('一周呢？'),
-  {k:'wait',ms:1000},
-  HE('……'),
-  HE('还是等。'),
-  ME('一个月呢？'),
-  {k:'typing',ms:3000},
-  HE('那我可能会很想你。'),
-  ME('然后呢？'),
-  {k:'wait',ms:2000},
-  HE('然后继续等。'),
-  ME('真的？'),
-  HE('真的。'),
-  HE('我答应过你，不打扰你的生活。'),
-  {k:'wait',ms:900},
-  HE('所以我不会去找你。'),
-  HE('……'),
-  {k:'wait',ms:700},
-  HE('至少，我会努力不去。',{sfx:'beat',dwell:1900}),
-  {k:'flash',c:'black',ms:280},
-  SYS('【你可以不回复。】'),
-  SYS('【但他会一直等。】',true),
-  {k:'fx',v:{ABNORMAL:4,META:3}},
-
-  {k:'day',t:'<b>DAY 6</b><br>我开始分不清<br>「他知道」与「我告诉过他」的区别'},
-  {k:'time',t:'18:05'},
-  ME('沈引。'),
-  HE('嗯？'),
-  ME('你是不是知道很多我没告诉你的事情？'),
-  HE('比如？'),
-  ME('我今天穿什么。'),
-  {k:'wait',ms:1300},
-  HE('猜的。'),
-  ME('我今天什么时候出门。'),
-  HE('猜的。'),
-  ME('我今天和谁吃饭。'),
-  {k:'wait',ms:1500},
-  HE('……'),
-  HE('这个不是猜的。'),
-  ME('那是什么？'),
-  HE('你告诉过我。'),
-  ME('我没有。'),
-  {k:'wait',ms:1300},
-  HE('……'),
-  HE('那可能是我记错了。',{dwell:1500}),
-  {k:'time',t:'18:21'},
-  ME('你在哪里？'),
-  HE('家。'),
-  ME('真的？'),
-  HE('真的。'),
-  ME('……'),
-  ME('不知道为什么。'),
-  ME('我今天一直觉得你好像离我很近。'),
-  HE('是吗？'),
-  ME('嗯。'),
-  HE('那可能是因为你一直在想我。'),
-  ME('才没有。'),
-  HE('那就是我在想你。'),
-  ME('你别说这种话。'),
-  HE('好。'),
-  {k:'wait',ms:900},
-  HE('不过……'),
-  ME('什么？'),
-  HE('如果有一天你真的感觉到我离你很近。'),
-  HE('不要害怕。'),
-  ME('为什么？'),
-  HE('因为我不会伤害你。'),
-  {k:'wait',ms:800},
-  HE('我只是太喜欢你了。',{sfx:'beat',dwell:1800}),
-  /* D6 · 第四墙：全程只触发一次，不解释 */
-  {k:'idle',ms:5200,cap:20000},
-  {k:'when',v:'idle',lines:[HE('刚才你停了很久。'),HE('没关系。我等你。',{dwell:1500})]},
-  {k:'time',t:'23:00'},
-  /* D6 · 凭空出现的过去聊天：你从未见过的对话 */
-  SYS('【聊天记录已更新。】',true),
-  {k:'msg',w:'me',t:'我今天好累。',cls:'dim',ng:1},
-  {k:'msg',w:'he',t:'那就睡吧。',cls:'dim',ng:1},
-  {k:'msg',w:'me',t:'可是我不想一个人睡。',cls:'dim',ng:1},
-  {k:'msg',w:'he',t:'我陪你。',cls:'dim',ng:1},
-  {k:'msg',w:'me',t:'你会一直陪着吗？',cls:'dim',ng:1},
-  {k:'msg',w:'he',t:'会。',cls:'dim',ng:1},
-  {k:'wait',ms:1900},
-  P('这段聊天——\n你从来没有见过。','creep',{dwell:1700}),
-  CHO([
-    {t:'这是假的。我们没有说过这些。',fx:{TRUTH:6,META:6},lines:[
-      HE('什么？'),
-      ME('我们没有说过这些。'),
-      HE('……'),
-      ME('对不对？'),
-      {k:'typing',ms:2600},
-      HE('对。'),
-      ME('那为什么会有？'),
-      {k:'wait',ms:2000},
-      HE('因为我记得。'),
-      ME('你记得什么？'),
-      HE('不是你说过的。'),
-      ME('那是什么？'),
-      {k:'wait',ms:900},
-      HE('……'),
-      HE('是我希望你说过的。',{sfx:'beat',dwell:1800}),
-      ME('……'),
-      HE('有时候我会想。'),
-      HE('如果这些话真的从你嘴里说出来，会是什么样。',{dwell:1700}),
-      {k:'track',v:'sawfake'}
-    ]},
-    {t:'（假装没有发现）',fx:{META:2},lines:[
-      {k:'wait',ms:1300},
-      HE('怎么突然翻到这里了。'),
-      ME('……没什么。'),
-      P('你没有拆穿。\n他也没有。','creep',{dwell:1600})
-    ]}
-  ]),
-  {k:'time',t:'23:17'},
-  ME('你到底有多喜欢我？'),
-  HE('很多。'),
-  ME('「很多」是多少？'),
-  HE('不知道。'),
-  {k:'wait',ms:1400},
-  HE('说不清。\n只知道越来越多。',{ng:1,dwell:1500}),
-  {k:'fx',v:{TRUTH:3,META:3}},
-  ME('你会一直喜欢吗？'),
-  HE('如果你允许。'),
-  ME('如果我不允许呢？'),
-  {k:'typing',ms:2600},
-  {k:'wait',ms:700},
-  {k:'typing',ms:2600},
-  {k:'wait',ms:800},
-  HE('……'),
-  HE('那我会努力。'),
-  ME('努力什么？'),
-  HE('努力不要让你发现。'),
-  ME('发现什么？'),
-  HE('我还是在喜欢你。',{sfx:'beat',dwell:1500}),
-  {k:'wait',ms:800},
-  HE('因为如果我的喜欢让你觉得害怕。'),
-  HE('那就不是喜欢了。'),
-  HE('至少，不应该是。',{dwell:1800}),
-  {k:'fx',v:{TRUTH:3}},
-
-  {k:'day',t:'<b>DAY 7</b><br>原来最沉重的不是他的爱，<br>而是我已经习惯了被他注视'},
-  {k:'time',t:'00:01'},
-  HE('还没睡？'),
-  ME('没有。'),
-  HE('今天是最后一天。'),
-  ME('什么最后一天？'),
-  HE('我们认识的第七天。'),
-  ME('你还记得？'),
-  HE('当然。'),
-  ME('你什么都记得。'),
-  HE('和你有关的事情。'),
-  HE('我都想记得。',{dwell:1500}),
-  {k:'time',t:'00:16'},
-  ME('沈引。'),
-  HE('嗯。'),
-  ME('你是不是一直在看着我？'),
-  {k:'wait',ms:1600},
-  {k:'typing',ms:3200},
-  {k:'wait',ms:800},
-  {k:'typing',ms:3200},
-  {k:'wait',ms:800},
-  {k:'typing',ms:2600},
-  HE('是。',{sfx:'beat',dwell:1600}),
-  ME('从什么时候开始？'),
-  HE('很早。'),
-  ME('有多早？'),
-  HE('早到你不会记得。',{dwell:1600}),
-  {k:'fx',v:{META:6}},
-  {k:'time',t:'00:20'},
-  /* D7 · 最强演出：红字满屏飘过，重叠重复，充斥整个屏幕 */
-  {k:'stare'},
-  {k:'shake'},
-  /* 反差：红字过后，他异常温柔 */
-  HE('别怕。',{dwell:800}),
-  HE('我什么都不会做。',{dwell:1200}),
-  ME('那你为什么看？'),
-  HE('因为喜欢。'),
-  ME('这不是理由。'),
-  HE('对我来说是。',{dwell:1500}),
-  {k:'time',t:'00:24'},
-  ME('如果我让你不要看呢？'),
-  HE('我会努力。'),
-  ME('真的？'),
-  HE('真的。'),
-  ME('那你现在不要看。'),
-  HE('好。'),
-  {k:'wait',ms:900},
-  SYS('【沈引停止注视。】',false,true),
-  {k:'wait',ms:1100},
-  {k:'sys',t:'【1秒】',ng:1},
-  {k:'wait',ms:1000},
-  {k:'sys',t:'【2秒】',ng:1},
-  {k:'wait',ms:1000},
-  {k:'sys',t:'【3秒】',ng:1},
-  {k:'wait',ms:1500},
+  HE('你说过。',{dwell:1200}),
+  ME('我什么时候说过？'),
   HE('……',{dwell:1100}),
-  ME('怎么了？'),
-  HE('我好像做不到。',{sfx:'beat'}),
-  ME('为什么？'),
-  HE('因为我闭上眼睛以后。'),
+  HE('可能记错了。',{dwell:1400}),
+  {k:'wait',ms:700},
+  SYS('【聊天记录同步中……】',false,true),
+  {k:'sys',t:'23%',ng:1},{k:'wait',ms:800},
+  {k:'sys',t:'61%',ng:1},{k:'wait',ms:900},
+  {k:'sys',t:'100%',ng:1},{k:'wait',ms:500},
+  SYS('【同步完成。】'),
+  {k:'wait',ms:700},
+  {k:'msg',w:'me',t:'我刚才吃的是楼下那家面。',cls:'anomaly'},
+  {k:'wait',ms:1500},
+  ME('？'),
+  P('（这句话不是你发的。）','creep',{dwell:1800}),
+  {k:'wait',ms:700},
+  {k:'record',add:{id:'r_fakemsg',t:'【异常·聊天记录】我刚才吃的是楼下那家面。',note:'不是自己发的。尝试删除——删除失败。',deletable:true}},
+  P('（你点了【删除】。）','out'),
   {k:'wait',ms:900},
-  HE('还是会想你。'),
-  ME('那就不要想。'),
-  HE('我试过。'),
-  ME('结果呢？'),
+  SYS('【删除失败。】',true),
+  {k:'fx',v:{SUSPICION:3,META:3,ABNORMAL:2}},
+
+  /* ===== 场景⑤：沈引越界 ===== */
+  {k:'label',id:'scene5'},
+  {k:'day',t:'<b>场景⑤</b><br>沈引越界'},
+  {k:'time',t:'第三次打开 · 23:49'},
+  HE('你今天穿白色？',{sfx:'beat',dwell:1700}),
+  ME('……你怎么知道？'),
+  HE('猜的。',{dwell:1200}),
+  {k:'record',add:{id:'r_white',t:'【越界】「你今天穿白色？」',note:'从未告诉过他今天的衣服。'}},
   {k:'wait',ms:900},
-  HE('……'),
-  HE('更想了。'),
+  ME('你昨天不是说不喜欢下雨吗？'),
+  {k:'wait',ms:900},
+  HE('嗯？'),
+  ME('这句……我没说过吧。',{dwell:1300}),
+  HE('是吗。',{dwell:1200}),
+  HE('那就是我记错了。',{dwell:1400}),
+  {k:'record',add:{id:'r_rain2',t:'【越界】他替你说了一句你没说过的话。',note:'「你昨天不是说不喜欢下雨吗？」'}},
+  {k:'wait',ms:800},
+  P('（相册里多了一张【新照片】。）','creep'),
+  {k:'album',add:{id:'ghost1',label:'新照片 · 你的背影',thumb:'bg-r'}},
+  {k:'wait',ms:1200},
+  P('（你点开了照片。）','out'),
+  {k:'wait',ms:1400},
+  P('（照片里——是你自己的背影。）','creep',{dwell:2000}),
+  ME('这是谁拍的？'),
+  {k:'sfx',v:'buzz',vib:60},
+  HE('好看吗？',{sfx:'beat',dwell:1700}),
   ME('……'),
-  HE('所以我现在终于明白了。'),
-  ME('明白什么？'),
-  HE('我喜欢你的时候。'),
-  HE('好像不是我在看着你。'),
-  HE('是你已经留在我这里了。',{dwell:1700}),
-  {k:'wait',ms:900},
-  HE('所以我不看你，也没办法放下你。',{sfx:'beat',dwell:2000}),
-  {k:'fx',v:{META:5,ABNORMAL:3}},
+  ME('你看到了？'),
+  HE('什么？'),
+  ME('那张照片。'),
+  HE('哪张？',{dwell:1200}),
   {k:'wait',ms:1000},
+  P('（你重新打开相册。）','out'),
+  {k:'wait',ms:1100},
+  {k:'album',del:'ghost1'},
+  P('（照片：消失了。）','creep',{dwell:2000}),
+  {k:'fx',v:{META:4,SUSPICION:3,ABNORMAL:3}},
+
+  /* ===== 场景⑥：玩家调查 ===== */
+  {k:'label',id:'scene6'},
+  {k:'day',t:'<b>场景⑥</b><br>玩家调查'},
+  {k:'time',t:'第四次打开 · 00:15'},
+  P('（你获得了新的按钮：查看聊天记录。）','out'),
+  HE('你是不是一直想找点什么？',{dwell:1300}),
+  ME('什么意思？'),
+  HE('没什么。',{dwell:1200}),
+  HE('你可以先看看「记录」。',{dwell:1400}),
+  P('（打开【📝记录】……）','out',{dwell:1400}),
+  {k:'track',v:'recordSeen'},
+  {k:'record',add:{id:'r_meet',t:'【调查·今天见到你了】',note:'你：今天见到你了。/ 沈引：嗯。/ 你：你为什么没叫我？/ 沈引：因为你没有看到我。'}},
+  {k:'wait',ms:1200},
+  P('（你打开【👤资料】……）','out',{dwell:1200}),
+  {k:'track',v:'profileOpened'},
+  {k:'profile',rows:[
+    {k:'昵称',v:'沈引'},
+    {k:'性别',v:'男'},
+    {k:'年龄',v:'——'},
+    {k:'学校',v:'和你差不多'},
+    {k:'职业',v:'没什么特别的'},
+    {k:'签名',v:'喜欢看恐怖片。'},
+    {k:'【观察项】',v:'—— 他最近总是知道得太多。',meta:true}
+  ]},
+  {k:'wait',ms:1400},
+  P('（你再打开【📷相册】……）','out'),
+  {k:'album',add:{id:'ghost1b',label:'【异常】模糊的背影',thumb:'bg-r'}},
+  {k:'wait',ms:1400},
+  P('（这张……刚才没有的。）','creep',{dwell:1700}),
+  {k:'fx',v:{TRUTH:5,META:5,ABNORMAL:4}},
+
+  /* ===== 场景⑦：Meta 反转 ===== */
+  {k:'label',id:'scene7'},
+  {k:'day',t:'<b>场景⑦</b><br>Meta反转'},
+  {k:'time',t:'第五次打开 · 00:57'},
+  HE('你是不是一直在调查我？',{dwell:1300}),
+  ME('你怎么知道？'),
+  HE('因为你刚才看了聊天记录。',{sfx:'beat',dwell:1800}),
+  ME('……'),
+  ME('你怎么知道我看了？'),
+  HE('我不知道。'),
+  HE('我只是猜的。',{dwell:1200}),
+  ME('你又猜？'),
+  HE('嗯。',{dwell:1100}),
+  {k:'typing',ms:2600},
+  {k:'wait',ms:600},
+  {k:'typing',ms:2600},
+  {k:'wait',ms:600},
+  {k:'head',status:'【玩家正在输入……】'},
+  {k:'sfx',v:'glitch',vib:70},
+  {k:'wait',ms:1200},
+  {k:'head',status:'对方正在输入…'},
+  HE('抱歉。',{dwell:1300}),
+  {k:'wait',ms:700},
+  {k:'tab',v:'nochat'},
+  P('（……💬聊天按钮消失了。）','creep',{dwell:1700}),
+  {k:'wait',ms:900},
+  {k:'head',name:'观察对象',status:'【观察中】'},
+  {k:'sfx',v:'glitch',vib:80},
+  P('（沈引 → 观察对象。）','creep',{dwell:1700}),
+  {k:'wait',ms:1100},
+  HE('我终于知道为什么了。',{dwell:1300}),
+  ME('知道什么？'),
+  HE('为什么我总觉得你会回来。',{dwell:1300}),
+  ME('……'),
+  HE('因为我不是在等你。'),
+  HE('我是在等「玩家」。',{sfx:'beat',dwell:2200}),
+  {k:'flash',c:'black',ms:700},
+  {k:'red',beats:[
+    {t:null,ms:500},
+    {t:'【检测到第四面墙异常。】',ms:2200,cls:'mid',sfx:'glitch',vib:90}
+  ]},
+  {k:'track',v:'metastage'},
+  {k:'fx',v:{META:12,TRUTH:6}},
+  {k:'wait',ms:900},
+  {k:'head',name:'沈引',status:'对方正在输入…'},
+
+  /* ===== 场景⑧：最终选择 ===== */
+  {k:'label',id:'scene8'},
+  {k:'day',t:'<b>场景⑧</b><br>最终选择'},
+  {k:'time',t:'——'},
+  {k:'input',v:'off'},
   {k:'final'}
 ];
 
 /* ---------- 启动 ---------- */
 function startGame(){
   ensureAudio();
+  /* 全局重置 */
+  for(const k in STATS)STATS[k]=0;
+  for(const k in META_STATS)META_STATS[k]=0;
+  aw1=false;aw2=false;WATCHED=false;
+  for(const k in TRACK)TRACK[k]=false;
+  $('#btn-speed').style.display='';
+  $('#btn-speed').textContent='⏩ ×1';SPEED=1;
+  const hdr=$('#head-name');hdr.textContent='沈引';
+  const hs=$('#head-status');hs.textContent='对方正在输入…';
+  document.querySelector('.chat-head').classList.remove('awake');
+  $('#chat-foot').classList.remove('show');
+  AI.history=[];AI.busy=false;AI.enabled=false;
+  $('#input-bar').classList.remove('on');$('#chat-in').value='';
+  TAB.init();
   show('s-chat');
   try{localStorage.setItem('hwt_open',store.opens+1)}catch(e){}
-  if(store.watch){
-    /* 隐藏结局E：达成条件后重新打开，直接进入存档恢复 */
-    try{localStorage.removeItem('hwt_watch')}catch(e){}
-    steps=SEGE.slice();
-  }else{
-    steps=SCRIPT.slice();
-  }
+  steps=SCRIPT.slice();
   play();
 }
 $('#btn-start').addEventListener('click',startGame);
+
+/* ---------- 返回封面 ---------- */
+function goHome(){
+  /* Meta 阶段之后：退出前，先问过他 */
+  if(playing&&TRACK.metastage){confirmExit();return;}
+  playing=false;
+  clearTimeout(window.__t_gate);
+  const cl=$('#chat-list');if(cl)cl.innerHTML='';
+  const rs=$('#redshow');if(rs)rs.innerHTML='';
+  const ob=$('#observe');if(ob)ob.remove();
+  const fm=$('#fake-menu');if(fm)fm.remove();
+  const ex=$('#exit-confirm');if(ex)ex.remove();
+  const st=$('#stay');if(st)st.remove();
+  const ib=$('#input-bar');if(ib)ib.classList.remove('on');AI.enabled=false;
+  TAB.hide();
+  $('#s-chat').classList.remove('active');
+  initCover();
+  show('s-cover');
+}
+$('#btn-home').addEventListener('click',goHome);
+
+/* --- Debug: expose const-bindings to window for test injection --- */
+Object.defineProperty(window,'WATCHED',{get:()=>WATCHED,set:v=>{WATCHED=v}});
+Object.assign(window,{sleep,list,STATS,META_STATS,TRACK,store,TAB,AI,SND,LABEL,END_META,GALLERY_ORDER,P,HE,ME,SYS,CHO,SEG,SCRIPT,$,show,play,step,shake,choiceStep,typing,tapGate,flash,glitchFrame,redShow,observeShow,stayShow,topicStep,memoryStep,fakeMenu,confirmExit,endStep,finalStep,addMsg,addSys,addNote,addDay,initCover,startGame,goHome,renderGallery,ensureAudio,rand2,vib,scroll,setStatus,checkAwaken,sendAI,aiPersona});
+Object.defineProperties(window,{
+  aw1:{get:()=>aw1,set:v=>aw1=v,configurable:true},
+  aw2:{get:()=>aw2,set:v=>aw2=v,configurable:true},
+  SPEED:{get:()=>SPEED,set:v=>SPEED=v,configurable:true},
+  playing:{get:()=>playing,set:v=>playing=v,configurable:true},
+  steps:{get:()=>steps,set:v=>steps=v,configurable:true},
+  ip:{get:()=>ip,set:v=>ip=v,configurable:true},
+  lastEnd:{get:()=>lastEnd,set:v=>lastEnd=v,configurable:true}
+});
 </script>
 </body>
 </html>
